@@ -1,0 +1,267 @@
+var DatosProyecto = function () 
+{
+
+  Ext.QuickTips.init();
+  var formatoFecha='d-m-Y';			
+  var anchocampos=180;					
+  
+		/*************************************************PANEL DATOS PROYECTO**************************************/    
+    //creamos el data store cargamos los datos del proyecto seleccionado
+    var datosProyectoDataStore = new Ext.data.Store({
+        id: 'datosProyectoDataStore',
+        proxy: new Ext.data.HttpProxy({
+                url: 'datosproyecto/cargar', 
+                method: 'POST'
+        }),
+        baseParams:{task: 'LISTARPROYECTO'}, 
+        reader: new Ext.data.JsonReader({
+                root: 'results',
+                totalProperty: 'total',
+                id: 'id'
+                },[ 
+                  {name: 'proid', type: 'int'},	    
+                  {name: 'prosigla', type: 'string'},
+                  {name: 'pronom', type: 'string'},
+                  {name: 'proareaaplicacion', type: 'string'},
+                  {name: 'profechaini', type: 'string'},
+                  {name: 'profechafin', type: 'string'},
+                  {name: 'proestado', type: 'string'},
+                  {name: 'prodescripcion', type: 'string'},
+                  {name: 'procreador', type: 'string'},
+		  {name: 'procreatedat', type: 'string'},
+		  {name: 'proupdatedat', type: 'string'},
+                  {name: 'prologo', type: 'string'}
+        ]),
+         sortInfo:{field: 'proid', direction: "ASC"}
+    });
+   
+    //logo
+	function ponerLogo(val){
+		if(val!='0')
+		{return '<img src='+URL_AGILHU+'/pusuario.php/documentos/cargar?task=DESCARGAR&Identificador='+val+' width=85 height=85 >';}
+		else{return '<img src="../images/projecto-logo-default.png" width=85 height=85 >';}
+	}
+     
+    var logoProyectoColModel = new Ext.grid.ColumnModel({
+    columns:[{ header: "Logo", width: 85, dataIndex: 'prologo',renderer:ponerLogo}]
+    });
+    
+    var logoProyectoGrid=new Ext.grid.GridPanel({
+		id:'logoProyectoGrid',
+		ds: datosProyectoDataStore,
+	    cm: logoProyectoColModel,
+		width:87,
+		layout:'fit',
+		height:98,//sin hideheaders 117
+		hideHeaders :true
+    });
+	//end logo
+    var datosProyectoFormPanel=new Ext.FormPanel({
+	region:'west',
+	split:true,
+	autoScroll:true,
+	collapsible:true,
+	title:'Datos del proyecto',
+	width:420,
+	frame:true,
+	bodyStyle: Ext.isIE ? 'padding:0 0 15px 15px;' : 'padding:10px 15px;',
+	border: true,
+	items:[
+			{xtype:'panel', layout:'column',border:false,
+			items:[ 
+				logoProyectoGrid,
+				{xtype:'panel',layout:'form',
+				 border:true,width:250,
+				 defaults:{anchor:'98%',readOnly:true},
+				 style: {
+						"margin-left": "10px", 
+				},
+				 items:[{fieldLabel: 'Id',name: 'proid',xtype:'textfield'},
+				      {fieldLabel: 'Creado por',name: 'procreador',xtype:'textfield'},	
+				      {fieldLabel: 'Creado el',name: 'procreatedat',xtype:'textfield'},	
+				      {fieldLabel: 'Actualizado el',name: 'proupdatedat',xtype:'textfield'},	
+				       ]
+				 },
+			     ]
+			},
+			{xtype:'fieldset',
+			 title: 'Datos basicos',
+			 layout:'form',
+			 autoScroll:true,
+			 defaults:{anchor:'100%'},
+			 collapsible: true,
+			 bodyStyle: Ext.isIE ? 'padding:0 0 15px 15px;' : 'padding:5px 5px;',
+			 items:[
+			      {fieldLabel: 'Nombre corto',name: 'prosigla',xtype:'textfield',maxLength : 80},			
+			      {fieldLabel: 'Nombre',name: 'pronom',xtype:'textfield',maxLength : 300},
+			      {name:'proareaaplicacion',fieldLabel:'Area ',xtype:'combo',
+						blankText:'Digite el area de aplicacion del proyecto',
+						typeAhead: true,triggerAction: 'all', lazyRender:true,mode: 'local',forceSelection :true,
+						store: new Ext.data.ArrayStore({
+							  id: 0,
+							  fields: ['area'],
+							  data: [['cientifico'],['informatico'],['social'],['deporte'],['educativo'],['comercial'],['otro']]}),
+						valueField: 'area',displayField: 'area'		      
+			      },
+			      {xtype: 'datefield',fieldLabel: 'Fecha inicio',name: 'profechaini',format:formatoFecha},
+			      {xtype: 'datefield',fieldLabel: 'Fecha fin',name: 'profechafin',format:formatoFecha},            
+			      {name:'proestado',fieldLabel:'Estado de avance',xtype:'combo',forceSelection:true,
+						blankText:'Digite el estado del proyecto',
+						typeAhead: true,triggerAction: 'all', lazyRender:true,mode: 'local',
+						store: new Ext.data.ArrayStore({
+							  id: 0,
+							  fields: ['estado'],
+							  data: [['creado'],['en proceso'],['terminado'],['otro']]
+							  }),
+						valueField: 'estado',displayField: 'estado'
+			      },
+			      {   xtype:'panel',
+				  layout:'form',
+				  border:false,
+				  deferredRender: false,
+				  height:240,
+				  width:320,
+				  labelAlign:'top',
+				  items:[{fieldLabel:'Descripci&oacute;n del proyecto',name:'prodescripcion',xtype: 'htmleditor',
+						 height:220,anchor:'100%'
+					     }
+				        ]
+			      }]
+			}
+			],
+    });
+
+	datosProyectoDataStore.load({
+	  callback: function() {
+	    var record = datosProyectoDataStore.getAt(0);
+	    datosProyectoFormPanel.getForm().loadRecord(record);
+	  }
+	});
+
+
+/*DIAGRAMAS*/
+	//por modulo
+    var diagramaHisxModJsonStore = new Ext.data.JsonStore({
+        url: 'datosproyecto/cargar',
+        baseParams:{
+          task: 'DIAGRAMAHISxMODULO'
+        },
+        root: 'results',//las HU por modulo
+        idProperty: 'modNombre',
+        fields:[{name:'modNombre', type: 'string'},
+                {name:'cantHu', type: 'int'},
+		] //los campos de la respuesta 
+      });
+    diagramaHisxModJsonStore.load();
+	
+    var diagramaHisxModPanel=new Ext.Panel({
+        height: heightCentro - 80,
+        border:false,
+        title: 'Grafica de cantidad de historias por modulo del proyecto',
+        items: [
+                {
+                 xtype:'columnchart',// 'stackedbarchart',
+                 store: diagramaHisxModJsonStore,
+                 yField: 'cantHu',
+	         xField: 'modNombre',
+                 xAxis: new Ext.chart.CategoryAxis({
+                     title: 'Modulos'
+                 }),
+          	 yAxis: new Ext.chart.NumericAxis({
+                    title:'Cantidad de HU',
+                    labelRenderer: Ext.util.Format.number
+                 }),
+                 extraStyle: {
+                    xAxis: {
+                        labelRotation: -90
+                     }
+                 }}
+                ]
+    });
+
+
+    var diagramaHisxParJsonStore = new Ext.data.JsonStore({
+        url: 'datosproyecto/cargar',
+        baseParams:{
+          task: 'DIAGRAMAHISxPARTICIPANTE'
+        },
+        root: 'results',//las HU por participante
+        fields:[{name:'usuNombre', type: 'string'},
+                {name:'cantHuCreadas', type: 'int'},
+                {name:'cantHuResponsable', type: 'int'},
+                {name:'cantHuTesteadas', type: 'int'},
+		] //los campos de la respuesta 
+      });
+    diagramaHisxParJsonStore.load();
+	
+    var diagramaHisxParPanel=new Ext.Panel({
+        height: heightCentro - 80,
+        border:false,
+        title: 'Grafica de cantidad de historias por participante del proyecto',
+        items: [
+                {
+                 xtype:'stackedbarchart',
+                 store: diagramaHisxParJsonStore,
+                 yField: 'usuNombre',
+                 xAxis: new Ext.chart.NumericAxis({
+                     stackingEnabled: true,
+                     title: 'Participante'
+                 }),
+          	series: [{
+		        xField: 'cantHuCreadas',
+		        displayName: 'Creadas'
+		    },{
+		        xField: 'cantHuResponsable',
+		        displayName: 'Responsable'
+		    },{
+		        xField: 'cantHuTesteadas',
+		        displayName: 'Testeadas'
+		    }],
+                }
+                ]
+    });
+
+/*END DIAGRAMAS*/
+
+    var diagramasEstadoProyecto = new Ext.TabPanel({
+    id: 'diagramasEstadoProyecto',
+    url: 'proyecto/cargar',
+    autoHeight:true,
+    title:'Graficas de estado',
+//bodyStyle: Ext.isIE ? 'padding:0 0 15px 15px;' : 'padding:10px 15px;',
+
+    split:true,
+    activeTab:0,
+    region:'center',
+    autoScroll:true,
+    items: [  {title:'Historias por modulo',
+               items:[diagramaHisxModPanel]},
+            //{title:'Historias por version'},//cantidad de versiones por historia
+              {title:'Historias por participante',
+              items:[diagramaHisxParPanel]}//cantidad creadas y cantidad bajo responsabilidad
+           ]
+    });
+
+    var contenedorDatosproyecto = new Ext.Panel({
+    id: 'contenedorDatosproyecto',
+    autoWidth:true,
+    layout:'border',
+    title:'Datos Proyecto',
+    closable: true,
+    frame:true,
+    border:false,
+    iconCls:'proyecto',
+    tabTip :'Ver los datos del proyecto',
+
+    height:heightCentro,
+    autoScroll:true,
+    items: [ datosProyectoFormPanel,
+            diagramasEstadoProyecto
+            ]//,
+  //  renderTo: 'formularioDatosProyecto'
+    });
+
+	ponEstilo();
+return contenedorDatosproyecto;
+}//hata aqui las llaves obligatorias 
+

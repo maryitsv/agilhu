@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.7.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfDomPDFPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>sfDomPDF plugin.</summary>
+ <description>sfDomPDFPlugin allows you to convert HTML into a PDF. It is using dompdf library (http://www.digitaljunkies.ca/dompdf/).
+This is great for converting things like invoices and customized documents into non-editable PDF format.
+Please note, that DomPDF does support CSS 2.1, however it is very picky with the formatting.
+Please avoid using shorthand CSS styles or combining styles. For more detail information about styling limitations see the dompdf homepage.</description>
+ <lead>
+  <name>Ian Ricketson</name>
+  <user>_Slick_Rick on IRC</user>
+  <email>ian.ricketson@symfony-project.com</email>
+  <active>yes</active>
+ </lead>
+ <contributor>
+  <name>leon</name>
+  <user>leon</user>
+  <email>-</email>
+  <active>-</active>
+ </contributor>
+ <date>2008-04-06</date>
+ <time>13:05:38</time>
+ <version>
+  <release>1.0.4</release>
+  <api>1.0.1</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.gnu.org/copyleft/lesser.txt">LGPL</license>
+ <notes>Changes since 1.0.2:
+ - dompdf_config.inc.php moved to the /lib/ directory
+ - $config_file changed to relect the config file reposition
+ - corrected function getConfigFile() to work on windows
+ - dompdf updated to its current cvs version with UTF-8 support</notes>
+ <contents>
+  <dir baseinstalldir="sfDomPDFPlugin" name="/">
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3c44b1f4c50d4c5538772f54a533d842" name="lib/sfDomPDFPlugin.class.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3f788a0a066d496f6b67d0ee6b194f8c" name="lib/dompdf/ChangeLog" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="079d2deb7de08a33fa223e72a09b0350" name="lib/dompdf/dompdf" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="ff7e63f9866f26e6f86090a35a2350c5" name="lib/dompdf/dompdf.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="cc312623da51ea65f366d7245546abd0" name="lib/dompdf/dompdf_config.inc.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c6e62a4ef71b17cb3eb66de5b4627e60" name="lib/dompdf/HACKING" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b74bd853275baa48f9329c45b785bd46" name="lib/dompdf/INSTALL" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f14599a2f089f6ff8c97e2baa4e3d575" name="lib/dompdf/LICENSE.LGPL" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7ff08308f10564f5ad11c57b63fc54c4" name="lib/dompdf/load_font.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b1021d4a0c34cd79de722b891cacefb5" name="lib/dompdf/Makefile" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e081aad08c7443a87aa146226f739434" name="lib/dompdf/README" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d998a2bce572b9a230ed9391814a9998" name="lib/dompdf/run-tests.sh" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="197f8c41397a56f8835f2bb6cb6738c5" name="lib/dompdf/TODO" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="59b77d595ef62fbf125fe99b2384be93" name="lib/dompdf/include/absolute_positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2dff91b0fe73daa053bd65ec3e40973c" name="lib/dompdf/include/abstract_renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="da327f3a5d36f9a1272699ba3d63fe22" name="lib/dompdf/include/attribute_translator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1cd5c2fc74f7d324091770bec6a6eae5" name="lib/dompdf/include/block_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e325a948e37f61043ff0c487a6813cad" name="lib/dompdf/include/block_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1189b9075c0ec8a112199aac32b4746d" name="lib/dompdf/include/block_positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="0fca6bab3d13d33c71b500450e941c00" name="lib/dompdf/include/block_renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b7c5a7f29d3a267170b0b39a5b19429a" name="lib/dompdf/include/cached_pdf_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="cffb01b753adf3b6acd7aca7684afef3" name="lib/dompdf/include/canvas.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="76c89cf0392fb39940b1b2b328328107" name="lib/dompdf/include/canvas_factory.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="930e6d81ebbac6ab67e769a079d93cb4" name="lib/dompdf/include/cellmap.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7e3bfc7291b5e27552be3b5a7eee1040" name="lib/dompdf/include/cpdf_adapter.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a88f603aee16927b17f6c52a4d0acc4c" name="lib/dompdf/include/dompdf.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="adb947a54ed887974817858fa4456ca8" name="lib/dompdf/include/dompdf_exception.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c40a32f978bee5fa4314604b235cdd7b" name="lib/dompdf/include/dompdf_internal_exception.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="6bc50221c2d2446fad2a5a2b0514289a" name="lib/dompdf/include/file.skel" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c999e061edd6eaac20f54749efd4cc5e" name="lib/dompdf/include/font_metrics.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="dcf82cb5ce9fad5ad0795f87e810eecd" name="lib/dompdf/include/frame.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f475c3a573a9b572c81f5e039aa59a30" name="lib/dompdf/include/frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="fa395a59c47eac2643aac67924d32d91" name="lib/dompdf/include/frame_factory.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7cf2a7c42e22163eef24d88e4e94f96a" name="lib/dompdf/include/frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1a0118ea3c1481b10c73be62023e1b20" name="lib/dompdf/include/frame_tree.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a07d52a5b5faf28bd73c683668ed8206" name="lib/dompdf/include/functions.inc.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7bc56ef6efa648286113b39628390c13" name="lib/dompdf/include/gd_adapter.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="055de672ce6d5929de3f668fbd776dc3" name="lib/dompdf/include/generated_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="02e5f7ec710179e5b944f70030967f48" name="lib/dompdf/include/image_cache.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="18a070cfe58a3e9b231150ce7d4b46dc" name="lib/dompdf/include/image_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="18ff70dcfcc4701356b5e201def09c90" name="lib/dompdf/include/image_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="4074cbcc5df214b10435ca622759b363" name="lib/dompdf/include/image_renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="eb16b8c1e8e1cc4e72d7542de17bfc8b" name="lib/dompdf/include/inline_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="5d38973124e2c9f18a4640442b93fba6" name="lib/dompdf/include/inline_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="fb26f41ca2814a8ad5229f4c6a4e0502" name="lib/dompdf/include/inline_positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8f1828c94fdb2c635ab68245f987bee8" name="lib/dompdf/include/inline_renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2306c16ae6078a43a9729ea10f4abee9" name="lib/dompdf/include/list_bullet_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="9f558bbec871c3ad7edf6d3fa946128d" name="lib/dompdf/include/list_bullet_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="751445c3f1c286510ab5aa18d0120a39" name="lib/dompdf/include/list_bullet_image_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="40c3ea3cf1522787fd5db56de3241f5a" name="lib/dompdf/include/list_bullet_positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b01d12a27cb6ffe9fa5edf2df753f76f" name="lib/dompdf/include/list_bullet_renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="fd6b16649e31ad7e44b605546f0d78c6" name="lib/dompdf/include/null_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1ca9751278dcec4f72b8a6f11a1786ba" name="lib/dompdf/include/null_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7eafdf5dd424f84217f4dbe6beaecd1f" name="lib/dompdf/include/null_positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f58e753ccdd9d5a3e25124c76243eeb2" name="lib/dompdf/include/page_cache.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="9c4ff0661b8a40fd959912485d8bb9b8" name="lib/dompdf/include/page_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="aadd706ab18c19637e9d6f41d0efa545" name="lib/dompdf/include/page_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="5e5ec7cff8daa00832d9a3c92612f6aa" name="lib/dompdf/include/pdflib_adapter.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f20b87d0994f19b2920ceb8231d729a4" name="lib/dompdf/include/php_evaluator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="630ae3f5e466c79d881ad8fcd74303ee" name="lib/dompdf/include/positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="577b14b7760c2039d9c350326f94236f" name="lib/dompdf/include/renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f13da2d08055d6baff93c646ab8d6d55" name="lib/dompdf/include/style.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d4d33404b80b4bbf0d02c3bf483ff903" name="lib/dompdf/include/stylesheet.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1c32fe5876e4704e56ee6267cc1ba80f" name="lib/dompdf/include/table_cell_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f53b9d598b65d56a69311662f50d65ef" name="lib/dompdf/include/table_cell_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="31627a641dfa9c4921609e9f98231a74" name="lib/dompdf/include/table_cell_positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a5184a12df8dd565c924e2de54d9ba77" name="lib/dompdf/include/table_cell_renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f16fc3fc4e96855ae1998d777f214f8e" name="lib/dompdf/include/table_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b621e301cb3814a70c516f4e819117b3" name="lib/dompdf/include/table_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="6e71a7bb54c06dbb172a3f013172b8c3" name="lib/dompdf/include/table_row_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e0a7075a286e981a4e7c3f6ad660996d" name="lib/dompdf/include/table_row_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2c4ace02ae757519274c9b531bafa4c9" name="lib/dompdf/include/table_row_group_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1bf7cf9b50d8c0d070e19c8d1238d765" name="lib/dompdf/include/table_row_group_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="10df5b058b94a4226675d8e5ad486533" name="lib/dompdf/include/table_row_positioner.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7d3818dfa922e09e1a0859098f07e9a6" name="lib/dompdf/include/text_frame_decorator.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="19bb23b9964e2269c3b7b8de07ee9581" name="lib/dompdf/include/text_frame_reflower.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="0d608060e7f454a4ebbeed0021914bf5" name="lib/dompdf/include/text_renderer.cls.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="114cd57f87bcbc7d0f70779da90adda5" name="lib/dompdf/lib/class.pdf.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="604187da729eee5fb89892fa390ba804" name="lib/dompdf/lib/fonts/Arial.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2995a75ebc4463192a5ffa2c1a96be32" name="lib/dompdf/lib/fonts/Arial.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a14c2537b0da4bed9f9611701aa1f4ac" name="lib/dompdf/lib/fonts/Arial_Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="9c66a98bdc2512c9e65cef3e5ba1b68e" name="lib/dompdf/lib/fonts/Arial_Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7454b295d57a852a4edffc67ec233302" name="lib/dompdf/lib/fonts/Arial_Bold_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="0babeef1484674aa43e63db1463ec607" name="lib/dompdf/lib/fonts/Arial_Bold_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e5d53caeee4c4bff653f6298e3f0fc94" name="lib/dompdf/lib/fonts/Arial_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="6c85d94057923d222762944be99bbe48" name="lib/dompdf/lib/fonts/Arial_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c439e3557c094dd465b9a8619d2d8c28" name="lib/dompdf/lib/fonts/Courier-Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f5646a1a57c23b26b9a35035c3815e38" name="lib/dompdf/lib/fonts/Courier-Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="9b526137d4e83966a7d787f16a970a92" name="lib/dompdf/lib/fonts/Courier-BoldOblique.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7c5932b55a99c6820bad020582ab5fef" name="lib/dompdf/lib/fonts/Courier-BoldOblique.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e311bc1b1c04626a491d088870eaa3d3" name="lib/dompdf/lib/fonts/Courier-Oblique.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="31555944ace4f3d0ca23abcb72a35bf5" name="lib/dompdf/lib/fonts/Courier-Oblique.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="ffa7f07b65b79ad3a3cf96373d673925" name="lib/dompdf/lib/fonts/Courier.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8fa0079b229c9e86ad69c4db6ee782cb" name="lib/dompdf/lib/fonts/Courier.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8d78678a2a8b47f0da963aae2416ed8b" name="lib/dompdf/lib/fonts/Courier_New.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3d495f0df4c2601aafc8cbe6f892c94e" name="lib/dompdf/lib/fonts/Courier_New_Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7c1754156a2f81021fd3e57945e3f29c" name="lib/dompdf/lib/fonts/Courier_New_Bold_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2bfa7c0a394f07f8de3c7b687f718af1" name="lib/dompdf/lib/fonts/Courier_New_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1139e0bbac650e4da32a61f475e40ee0" name="lib/dompdf/lib/fonts/dompdf_font_family_cache.dist" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2522e08ac57d542e7c80cc9eb9029306" name="lib/dompdf/lib/fonts/FreeSans.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d1c7e18177357d70bdcf30bd015d0609" name="lib/dompdf/lib/fonts/Georgia.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="28699e161a65b8789c73d3e93a763af8" name="lib/dompdf/lib/fonts/Georgia.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7066590f39684164b714a26a3a9b20ad" name="lib/dompdf/lib/fonts/Georgia_Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="395b4f2d4f9a2c655b21cf64105a65f9" name="lib/dompdf/lib/fonts/Georgia_Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8fecd20ae5606893b7e9238f93c4b834" name="lib/dompdf/lib/fonts/Georgia_Bold_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="98004ef49ed557a5204fb014f6c9fbfe" name="lib/dompdf/lib/fonts/Georgia_Bold_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e4923a880c95a12e2adae18fc1dc2cc8" name="lib/dompdf/lib/fonts/Georgia_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a706284f779d423102cf018dce358dae" name="lib/dompdf/lib/fonts/Georgia_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7145d25b32532574e6cbc66faf81e644" name="lib/dompdf/lib/fonts/Helvetica-Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="71e57b3cc07fe29f936967d68623cd3a" name="lib/dompdf/lib/fonts/Helvetica-Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a2b3dc9565b3bf050243676f8838f7c0" name="lib/dompdf/lib/fonts/Helvetica-BoldOblique.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="6713906196e28a3878903a10061d39a3" name="lib/dompdf/lib/fonts/Helvetica-BoldOblique.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2a99fd88162d66511df4dfa9cfef9a0d" name="lib/dompdf/lib/fonts/Helvetica-Oblique.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2ec25c083c343e7fbfca96e9df1e0954" name="lib/dompdf/lib/fonts/Helvetica-Oblique.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="76c1392acd106005714864513a28f6eb" name="lib/dompdf/lib/fonts/Helvetica.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="068d881b7ffe1a707b1ee8caa775f288" name="lib/dompdf/lib/fonts/Helvetica.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="dc4fb41b5b5fd1827ffa92c74f44fd5d" name="lib/dompdf/lib/fonts/lucon.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="0ab445988bf39322ddbd3a912d708494" name="lib/dompdf/lib/fonts/slkscr.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="52e010cb035cd64b1c2a34a9d59308b9" name="lib/dompdf/lib/fonts/slkscrb.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3505e6c24aa9f6ae78a49afb61d5c607" name="lib/dompdf/lib/fonts/slkscre.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="413aeebf4cc25683d4cab3206bc81e07" name="lib/dompdf/lib/fonts/slkscreb.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="926c56c2049e2869f58399f21cf459d4" name="lib/dompdf/lib/fonts/Symbol.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="620f9ab2545844430962cd9781d3f098" name="lib/dompdf/lib/fonts/Times-Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="917ca73a025852f51afa73e77362d065" name="lib/dompdf/lib/fonts/Times-Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a9838d3f067abcb74e9dc553e178aeeb" name="lib/dompdf/lib/fonts/Times-BoldItalic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1de70982bf1c452ddcf644872450544e" name="lib/dompdf/lib/fonts/Times-BoldItalic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="76ac04f27245f40d8810c204a7c23879" name="lib/dompdf/lib/fonts/Times-Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="03fe4dc5e1e0550a2c3f4b9ca79256d7" name="lib/dompdf/lib/fonts/Times-Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="6d681fbc04ce59f1ca07047375080b6c" name="lib/dompdf/lib/fonts/Times-Roman.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c6ceb2df2d426e26e3f1d4bf3ca7ce92" name="lib/dompdf/lib/fonts/Times-Roman.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d20cdae4bb72c455e3321acc7e8dbbd7" name="lib/dompdf/lib/fonts/Times_New_Roman.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c666af5e48232fed748bd1ccca0c3e1c" name="lib/dompdf/lib/fonts/Times_New_Roman.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7bf4ae8eff4bcfc572a30e3c178faa58" name="lib/dompdf/lib/fonts/Times_New_Roman_Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="79fa34951a105c37616db299c22b33c4" name="lib/dompdf/lib/fonts/Times_New_Roman_Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="713cc55a9ac706d3553209a01278073f" name="lib/dompdf/lib/fonts/Times_New_Roman_Bold_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2c7b73fe9f7ca49f7cdb3a1632ea19c0" name="lib/dompdf/lib/fonts/Times_New_Roman_Bold_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="ccf9ded05735ef01b40f40ed91d2e53e" name="lib/dompdf/lib/fonts/Times_New_Roman_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="4a710c8d94c6dfe1cfce6001465c8463" name="lib/dompdf/lib/fonts/Times_New_Roman_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="595db5802e4c664e01f3786204b43c62" name="lib/dompdf/lib/fonts/Trebuchet_MS.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="fc1e3a23fcc4973db6dcdc61a852d6d3" name="lib/dompdf/lib/fonts/Trebuchet_MS.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="4689bb67bf5d31e7a9368cdbeb1ed860" name="lib/dompdf/lib/fonts/Trebuchet_MS_Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="fdcb6e1a6767c5cd1394e9bbb83e5f2a" name="lib/dompdf/lib/fonts/Trebuchet_MS_Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3c9dded58560d75fb327e19d16707318" name="lib/dompdf/lib/fonts/Trebuchet_MS_Bold_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e3145a398bca813c0ed354363660f6a2" name="lib/dompdf/lib/fonts/Trebuchet_MS_Bold_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f39833461f3eb1a9c723cb380b16b1f4" name="lib/dompdf/lib/fonts/Trebuchet_MS_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="dc4d839421e97e70dff3bc73fcecccbe" name="lib/dompdf/lib/fonts/Trebuchet_MS_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="70a635e7250c66871bf92b71a6353090" name="lib/dompdf/lib/fonts/Verdana.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a356a908a3aa6e45a7bf863d6aa3e1ee" name="lib/dompdf/lib/fonts/Verdana.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e29a24863dc206a527f95c02a0dbc604" name="lib/dompdf/lib/fonts/Verdana_Bold.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a94fd7bf5e42af6d8101fdf55fc842da" name="lib/dompdf/lib/fonts/Verdana_Bold.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8e21bf8d5384a914b26d00dd84bc2ce4" name="lib/dompdf/lib/fonts/Verdana_Bold_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="4bfaf003700bd996f38748de774c11db" name="lib/dompdf/lib/fonts/Verdana_Bold_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7c317d3cc4f6acf6c0934b9afd4de2bb" name="lib/dompdf/lib/fonts/Verdana_Italic.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="fa32b2eecd0b05736dfe9312caa603ac" name="lib/dompdf/lib/fonts/Verdana_Italic.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="ec300e5dbe036430469b6d78c5b80051" name="lib/dompdf/lib/fonts/Zapf-Dingbats.ufm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f4c0997238596f2c4a5d02383f80368f" name="lib/dompdf/lib/fonts/ZapfDingbats.afm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="13248b68c82502c2da1cb52987f82459" name="lib/dompdf/lib/res/broken_image.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d66766811d0a5e8df82e32e30d5f12da" name="lib/dompdf/lib/res/html.css" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d499342bcbb0401dcd6561dad7355395" name="lib/dompdf/lib/ttf2ufm/README.TXT" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="bad9001a48c6e05049ef03baf8e7ff45" name="lib/dompdf/lib/ttf2ufm/ttf2ufm.exe" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="16ea8f4f039a8b5b56a3a8deeb9b79f2" name="lib/dompdf/test/anchor_link.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="15e45e51d37ff03ab1cfdf496f84dfb6" name="lib/dompdf/test/background_image.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d6fe241ae944c83c691a20b22b7354da" name="lib/dompdf/test/baseline.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="fb99fb025291afe593270c623fddc29f" name="lib/dompdf/test/block_height.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8d37ce4862dfc31f1b4fb28fc003d212" name="lib/dompdf/test/border_css_values.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d61757cd9e45f82435c78d84e3ec0c3d" name="lib/dompdf/test/border_test.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3c3d3207d556177ca4ae31beb7672aa9" name="lib/dompdf/test/br.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="bf5e3da414ada4d74c2eb5e6b1da363c" name="lib/dompdf/test/center_table.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c2cdf5192f6600b2c91e48604b4dc112" name="lib/dompdf/test/common.css" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b4f422dc0ed8966691515379554e319a" name="lib/dompdf/test/demo_01.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="47afa33054a1815d60b06f5e5ae379ad" name="lib/dompdf/test/dompdf_simple.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="021aef17eeb3ba826e099ce2354a55b3" name="lib/dompdf/test/entities.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="07cf3a6295cd749e7af88ee516bdfb56" name="lib/dompdf/test/gif_test.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7d859c22430c3146506f3ef68843f28d" name="lib/dompdf/test/html_attributes.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="a4bc4865116b82c698f20fc9d5b28e2f" name="lib/dompdf/test/image.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="f0a2d22d39ed37056c8fdd1dcad857c9" name="lib/dompdf/test/large_table.htm" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="72dff15ebf629b26a146d05197bf49f5" name="lib/dompdf/test/latin1.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7294a6e247f9ac4940cd0a82c6de754c" name="lib/dompdf/test/long_table.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d3fea15199af222fa3e67d9416afc5c9" name="lib/dompdf/test/margin.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8cd71310f68f353300cae01d1f99b759" name="lib/dompdf/test/multiple_class.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="035156d0ae08291a768a4fed47544bc2" name="lib/dompdf/test/nbsp.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="6445ee70237798fecfb0861f7417e893" name="lib/dompdf/test/nested_table.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="99eb3d78de12e79117cb534c5aaf840f" name="lib/dompdf/test/pages.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d428656fb041fb80734a4715386b2c85" name="lib/dompdf/test/php_test.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="097a87a2effe62dbc8a792d303bd09f1" name="lib/dompdf/test/print_static.css" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c2c01b2ad7c8b920e4786e8e8090f07d" name="lib/dompdf/test/remote.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="e7d0ff35f3e254894ce96995c7245fe0" name="lib/dompdf/test/simple_ul.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b3ed432face827d7fa5e57f456088060" name="lib/dompdf/test/special.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="8ebca4f5cdf258f071ef5f82e48eaf32" name="lib/dompdf/test/symbols.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c91254d0bc2c6c4209281ca15481b421" name="lib/dompdf/test/table.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="4c77ed34f99a93e958811c181d427596" name="lib/dompdf/test/table_01.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d07232453c9334abb43058bf51450e0f" name="lib/dompdf/test/table_height.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="93bd94900d05ab392e55bda24c6debb6" name="lib/dompdf/test/table_image.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b5062f18b21e1fa70584ff84f7777571" name="lib/dompdf/test/ul.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="9566ba731760304ac16747d26be1f759" name="lib/dompdf/test/unicode.html" role="doc"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="ae37fffa3ab42471a04ace6b649e2b32" name="lib/dompdf/www/examples.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="57ee8b7bf06d79afecc90c965d3b7037" name="lib/dompdf/www/faq.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="b52107fe68f0f89db61094286043c3ed" name="lib/dompdf/www/foot.inc" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="948c18313a91ba6baad7deaa5dee029a" name="lib/dompdf/www/head.inc" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="4b92952baae5a6e9d3e7f0cbecee3ed9" name="lib/dompdf/www/index.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2aca8f488c2b93e4acb46afd32d6f0c8" name="lib/dompdf/www/install.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3945b1fced5f389490cddf09ca4de8c6" name="lib/dompdf/www/style.css" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2b6cc120aa38b81867bb0ee92a441ef8" name="lib/dompdf/www/usage.php" role="php"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="38d0f355fc761d84c262e0b2b9dda811" name="lib/dompdf/www/images/arrow_01.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="5c29ef96f7a3b80721e714ccca3f3cb1" name="lib/dompdf/www/images/arrow_02.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="98c1acc3fc9c6324b0c530186ba7e099" name="lib/dompdf/www/images/arrow_03.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="5059289535b5390f340b5e574689505f" name="lib/dompdf/www/images/arrow_04.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="5d6572a5b04e1867a0ff5dfb2ec06cdd" name="lib/dompdf/www/images/arrow_05.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="6d52203d081727bfc33e4eb9e565a5a6" name="lib/dompdf/www/images/arrow_06.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="31bbf11dc5af1449f9d12a75f8dc544e" name="lib/dompdf/www/images/css2.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="c7751267be093095a577c57d31c74a7d" name="lib/dompdf/www/images/dompdf_simple.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="0a0c7eb9bc0fb38efaed1c4f1b89ea17" name="lib/dompdf/www/images/favicon.ico" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="af6c68a8baefabe34cfd7ee7b827c520" name="lib/dompdf/www/images/favicon.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="9698b9124f373d43d8af6d157779f63b" name="lib/dompdf/www/images/h_bar.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="08eac6c3288bf750d457addbb8d9918f" name="lib/dompdf/www/images/left_arrow.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="046e190f75558fdad62415140150a6b4" name="lib/dompdf/www/images/logo.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="2350811306c4f75a0e78d729f2f65e48" name="lib/dompdf/www/images/logo.xcf" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="7c3fd5e33e9aa05601edfe8ba3dbd1f1" name="lib/dompdf/www/images/php5-power-micro.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="4175157e0dc0a030eefca0ccbca0fa78" name="lib/dompdf/www/images/small_logo.png" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d089898d7b4bdc1899b72284a77e37e9" name="lib/dompdf/www/images/star_01.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="438592a6e9f4c1b5802aac14c9ce9f7b" name="lib/dompdf/www/images/star_02.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="9a7ecc23c2b83497c70080a104aa401a" name="lib/dompdf/www/images/star_03.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="3673b2eccebbdc8f059585a29ad96e4d" name="lib/dompdf/www/images/star_04.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="d89c134b72e4188c302d5cae54e633af" name="lib/dompdf/www/images/star_05.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="13f6b0dc3b64d84c8ba2d38a8305b0ab" name="lib/dompdf/www/images/title.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="ba6822c914106d652829728bf5c4ced3" name="lib/dompdf/www/images/v_bar.gif" role="data"/>
+   <file baseinstalldir="sfDomPDFPlugin" md5sum="1aa3196f2ff3e067d7bdd5ab0a21f958" name="lib/dompdf/www/images/xhtml10.png" role="data"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   
+  </required>
+ </dependencies>
+ <phprelease/>
+ <changelog>
+  <release>
+   <version>
+    <release>1.0.4</release>
+    <api>1.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2008-04-06</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.txt">LGPL</license>
+   <notes>Changes since 1.0.2:
+ - dompdf_config.inc.php moved to the /lib/ directory
+ - $config_file changed to relect the config file reposition
+ - corrected function getConfigFile() to work on windows
+ - dompdf updated to its current cvs version with UTF-8 support</notes>
+  </release>
+ </changelog>
+</package>

@@ -1,0 +1,97 @@
+.home{ background-image:url(../images/iconos/home.png) !important;}
+.nuevo{ background-image:url(../images/iconos/add.png) !important;}
+.eliminar{ background-image:url(../images/iconos/delete.gif) !important;}
+.actualizar{ background-image:url(../images/iconos/table_refresh.png) !important;}
+.ajustar{background-image:url(../images/iconos/zoom_out.png) !important;}
+.archivo{ background-image:url(../images/iconos/email.png) !important;}
+
+/*las imagenes de la aplicacion principal*/
+.participantes{background-image:url(../images/iconos/user_all.png) !important;}
+.docs{ background-image:url(../images/iconos/doc.png) !important;}
+.modulo{ background-image:url(../images/iconos/module.png) !important;}
+.prueba{ background-image:url(../images/iconos/tester.png) !important;}
+.salir{ background-image:url(../images/iconos/exit.png) !important;}
+.proyecto{ background-image:url(../images/iconos/package.png) !important;}
+.mis_proyecto{ background-image:url(../images/iconos/package_add.png) !important;}
+.tema{ background-image:url(../images/iconos/theme.png) !important;}
+.ayuda{ background-image:url(../images/iconos/help.png) !important;}
+.historias{ background-image:url(../images/iconos/notes.png) !important;}
+.usuario-info{ background-image:url(../images/iconos/user-info.png) !important;}
+.reportes{ background-image:url(../images/iconos/reporte.png) !important;}
+
+/*mis proyecto*/
+.nuevo_proyecto{ background-image:url(../images/iconos/proyecto/window_new.png) !important;}
+.actualizar_proyecto{ background-image:url(../images/iconos/proyecto/window_update.png) !important;}
+.eliminar_proyecto{ background-image:url(../images/iconos/proyecto/window_delete.png) !important;}
+
+/*modulos*/
+.nuevo_mod{ background-image:url(../images/iconos/modulo/module_add.png) !important;}
+.actualizar_mod{ background-image:url(../images/iconos/modulo/module_update.png) !important;}
+.eliminar_mod{ background-image:url(../images/iconos/modulo/module_delete.png) !important;}
+
+/*proyecto invitacion*/
+.invitacion{ background-image:url(../images/iconos/email.png) !important;}
+
+/*documentos*/
+.nuevo_doc{ background-image:url(../images/iconos/doc/new_doc.png) !important;}
+.eliminar_doc{ background-image:url(../images/iconos/doc/delete_doc.png) !important;}
+.descargar_doc{ background-image:url(../images/iconos/doc/donwload_doc.png) !important;}
+.con_panel{ background-image:url(../images/iconos/con_panel.png) !important;}
+.sin_panel{ background-image:url(../images/iconos/sin_panel.png) !important;}
+.filtrar{ background-image:url(../images/iconos/filtro.png) !important;}
+.buscar{ background-image:url(../images/iconos/buscar_doc.png) !important;}
+
+/*participantes*/
+.rol_experto{ background-image:url(../images/iconos/participa/experto.png) !important;}
+.rol_gestor{ background-image:url(../images/iconos/participa/manager.png) !important;}
+.rol_programador{ background-image:url(../images/iconos/participa/programador.png) !important;}
+.rol_todos{ background-image:url(../images/iconos/participa/todos.png) !important;}
+.rol_tester{ background-image:url(../images/iconos/participa/tester.png) !important;}
+.rol_jefe{ background-image:url(../images/iconos/participa/jefe.png) !important;}
+.rol_cliente{ background-image:url(../images/iconos/participa/cliente.png) !important;}
+.nueva_invitacion{ background-image:url(../images/iconos/participa/invitar.png) !important;}
+.enviar_mensaje{ background-image:url(../images/iconos/participa/enviar_mensaje.png) !important;}
+.eliminar{ background-image:url(../images/iconos/participa/eliminar.png) !important;}
+
+/*mensajes*/
+.nuevo_mensaje{ background-image:url(../images/iconos/mensaje/mail_new.png) !important;}
+.responder_mensaje{ background-image:url(../images/iconos/mensaje/mail_reply.png) !important;}
+.mensaje_enviado{ background-image:url(../images/iconos/mensaje/enviar_mensaje.png) !important;}
+.mensaje_recivido{ background-image:url(../images/iconos/mensaje/mail_get.png) !important;}
+.mensaje_todos{ background-image:url(../images/iconos/mensaje/mail-send-receive.png) !important;}
+.buscar_mensaje{ background-image:url(../images/iconos/mensaje/mail_find.png) !important;}
+.eliminar_mensaje{ background-image:url(../images/iconos/mensaje/mail_delete.png) !important;}
+
+/*hu*/
+.nueva_his{ background-image:url(../images/iconos/hu/notebook-add.png) !important;}
+.probar_his{ background-image:url(../images/iconos/hu/notebook-accept.png) !important;}
+.historial_his{ background-image:url(../images/iconos/hu/notebook-information.png) !important;}
+.versionar_his{ background-image:url(../images/iconos/hu/notebook-edit.png) !important;}
+.compare_his{ background-image:url(../images/iconos/hu/compare.png) !important;}
+.xml_his{ background-image:url(../images/iconos/hu/xml.png) !important;}
+.xml_his_grande{ background-image:url(../images/iconos/hu/text-xml.png) !important;}
+.regresar_version{ background-image:url(../images/iconos/hu/back_his.png) !important;}
+
+/*invitacion*/
+.aceptada_inv{ background-image:url(../images/iconos/invitacion/accep.png) !important;}
+.rechazada_inv{ background-image:url(../images/iconos/invitacion/recha.png) !important;}
+.nueva_inv{ background-image:url(../images/iconos/invitacion/start.png) !important;}
+.todo_inv{ background-image:url(../images/iconos/invitacion/globe_green.png) !important;}
+
+/*grilla con img de fondo*/
+.coolcell { 
+  background-image:url(../images/iconos/cellbck.jpg) !important;
+}
+
+/*gestion de usuarios*/
+.add_usu{ background-image:url(../images/iconos/usuario/add_usu.png) !important;}
+.eli_usu{ background-image:url(../images/iconos/usuario/eli_usu.png) !important;}
+.edit_usu{ background-image:url(../images/iconos/usuario/edit_usu.png) !important;}
+.usuarios{ background-image:url(../images/iconos/usuario/usuarios.png) !important;} 
+
+.mi_campo_focus {
+/*    color:#00cc00;*/
+/*    font:normal 11px tahoma, arial, helvetica, sans-serif;*/
+   /* background-image:url(../images/iconos/cellbckverde.jpg);*/
+}
+

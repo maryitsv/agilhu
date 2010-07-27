@@ -1,0 +1,146 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  agilhu_documento:
+    _attributes: { phpName: AgilhuDocumento }
+    doc_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    doc_nombre: { type: VARCHAR, size: '200', required: false }
+    doc_descripcion: { type: VARCHAR, size: '1000', required: false }
+    doc_tamano: { type: VARCHAR, size: '100', required: false }
+    doc_tipo: { type: VARCHAR, size: '200', required: false }
+    doc_contenido: { type: BLOB, required: false }
+    doc_id_pro: { type: INTEGER, required: false }
+    doc_id_mod: { type: INTEGER, required: false }
+    doc_id_his: { type: INTEGER, required: false }
+    doc_id_remitente: { type: INTEGER, required: false }
+    doc_visibilidad: { type: VARCHAR, size: '20', required: false }
+    created_at: { type: TIMESTAMP, required: false }
+  agilhu_historia_usuario:
+    _attributes: { phpName: AgilhuHistoriaUsuario }
+    his_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    mod_id: { type: INTEGER, required: false, foreignTable: agilhu_modulo, foreignReference: mod_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    pro_id: { type: INTEGER, required: false, foreignTable: agilhu_proyecto, foreignReference: pro_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    his_nombre: { type: VARCHAR, size: '200', required: false }
+    his_dependencias: { type: VARCHAR, size: '500', required: false }
+    his_prioridad: { type: VARCHAR, size: '10', required: false }
+    his_riesgo: { type: INTEGER, required: false }
+    his_tiempo_estimado: { type: INTEGER, required: false }
+    his_tiempo_real: { type: INTEGER, required: false }
+    his_tipo_actividad: { type: VARCHAR, size: '20', required: false }
+    his_descripcion: { type: LONGVARCHAR, required: false }
+    his_observaciones: { type: VARCHAR, size: '500', required: false }
+    created_at: { type: TIMESTAMP, required: false }
+    updated_at: { type: TIMESTAMP, required: true }
+    his_creador: { type: VARCHAR, size: '30', required: false }
+    his_temporal: { type: VARCHAR, size: '20', required: false }
+    his_version: { type: VARCHAR, size: '10', required: false }
+    his_responsable: { type: VARCHAR, size: '200', required: false }
+    his_unidad_tiempo: { type: VARCHAR, size: '10', required: false }
+    his_mensaje_version: { type: VARCHAR, size: '200', required: false }
+    his_identificador_historia: { type: INTEGER, required: false }
+    his_actor: { type: VARCHAR, size: '80', required: false }
+    his_iteracion: { type: INTEGER, required: false }
+  agilhu_mensaje_enviado:
+    _attributes: { phpName: AgilhuMensajeEnviado }
+    men_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    men_pro_id: { type: INTEGER, required: false }
+    men_de: { type: VARCHAR, size: '250', required: false }
+    men_para: { type: VARCHAR, size: '250', required: false }
+    men_asunto: { type: VARCHAR, size: '250', required: false }
+    created_at: { type: DATE, required: false }
+    men_mensaje: { type: VARCHAR, size: '250', required: false }
+  agilhu_mensaje_recibido:
+    _attributes: { phpName: AgilhuMensajeRecibido }
+    men_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    men_pro_id: { type: INTEGER, required: false }
+    men_de: { type: VARCHAR, size: '250', required: false }
+    men_para: { type: VARCHAR, size: '250', required: false }
+    men_asunto: { type: VARCHAR, size: '250', required: false }
+    created_at: { type: DATE, required: false }
+    men_mensaje: { type: VARCHAR, size: '250', required: false }
+  agilhu_modulo:
+    _attributes: { phpName: AgilhuModulo }
+    mod_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    pro_id: { type: INTEGER, required: false, foreignTable: agilhu_proyecto, foreignReference: pro_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    mod_nombre: { type: VARCHAR, size: '150', required: false }
+    mod_estado: { type: VARCHAR, size: '80', required: false }
+    created_at: { type: TIMESTAMP, required: false }
+    updated_at: { type: TIMESTAMP, required: false }
+    mod_descripcion: { type: LONGVARCHAR, required: false }
+    mod_padre: { type: INTEGER, required: false }
+    mod_habilitado: { type: VARCHAR, size: '20', required: false }
+  agilhu_participante:
+    _attributes: { phpName: AgilhuParticipante }
+    pro_id: { type: INTEGER, required: false, foreignTable: agilhu_proyecto, foreignReference: pro_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    usu_id: { type: INTEGER, required: false, foreignTable: agilhu_usuario, foreignReference: usu_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    rop_id: { type: INTEGER, required: false, foreignTable: agilhu_rol_proyecto, foreignReference: rop_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    estado: { type: VARCHAR, size: '50', required: false }
+    created_at: { type: TIMESTAMP, required: false }
+    id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+  agilhu_preguntas:
+    _attributes: { phpName: AgilhuPreguntas }
+    pre_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    pre_pro_id: { type: INTEGER, required: false, foreignTable: agilhu_proyecto, foreignReference: pro_id }
+    pre_descripcion: { type: VARCHAR, size: '1000', required: true }
+    pre_caracteristica_calidad: { type: VARCHAR, size: '100', required: false }
+    pre_categoria: { type: VARCHAR, size: '200', required: false }
+  agilhu_proyecto:
+    _attributes: { phpName: AgilhuProyecto }
+    pro_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    usu_id: { type: INTEGER, required: false, foreignTable: agilhu_usuario, foreignReference: usu_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    pro_nombre_corto: { type: VARCHAR, size: '80', required: false }
+    pro_nombre: { type: VARCHAR, size: '300', required: false }
+    pro_area_aplicacion: { type: VARCHAR, size: '500', required: false }
+    pro_fecha_inicio: { type: DATE, required: false }
+    pro_fecha_finalizacion: { type: DATE, required: false }
+    pro_estado: { type: VARCHAR, size: '50', required: false }
+    pro_logo: { type: VARCHAR, size: '500', required: false }
+    created_at: { type: TIMESTAMP, required: false }
+    updated_at: { type: TIMESTAMP, required: false }
+    pro_descripcion: { type: LONGVARCHAR, required: false }
+  agilhu_prueba_experto:
+    _attributes: { phpName: AgilhuPruebaExperto }
+    pru_fecha_evalucion: { type: TIMESTAMP, primaryKey: true, required: true }
+    his_id_asociada: { type: INTEGER, primaryKey: true, required: true, foreignTable: agilhu_historia_usuario, foreignReference: his_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    usu_evaluador_id: { type: INTEGER, primaryKey: true, required: true, foreignTable: agilhu_usuario, foreignReference: usu_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    pru_promedio: { type: NUMERIC, required: false }
+    pru_comentarios: { type: VARCHAR, size: '200', required: false }
+    pru_independiente: { type: INTEGER, required: false }
+    pru_negociable: { type: INTEGER, required: false }
+    pru_valiosa: { type: INTEGER, required: false }
+    pru_estimable: { type: INTEGER, required: false }
+    pru_pequena: { type: INTEGER, required: false }
+    pru_testeable: { type: INTEGER, required: false }
+  agilhu_rol:
+    _attributes: { phpName: AgilhuRol }
+    rol_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    rol_nombre: { type: VARCHAR, size: '50', required: true }
+  agilhu_rol_proyecto:
+    _attributes: { phpName: AgilhuRolProyecto }
+    rop_id: { type: INTEGER, primaryKey: true, required: true }
+    rop_nombre: { type: VARCHAR, size: '50', required: true }
+    rop_descipcion: { type: VARCHAR, size: '100', required: false }
+  agilhu_usuario:
+    _attributes: { phpName: AgilhuUsuario }
+    usu_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    rol_id: { type: INTEGER, required: false, foreignTable: agilhu_rol, foreignReference: rol_id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    usu_usuario: { type: VARCHAR, size: '30', required: true }
+    usu_clave: { type: VARCHAR, size: '32', required: true }
+    usu_nombres: { type: VARCHAR, size: '80', required: true }
+    usu_apellidos: { type: VARCHAR, size: '80', required: true }
+    usu_correo: { type: VARCHAR, size: '150', required: true }
+    usu_estado: { type: VARCHAR, size: '20', required: true }
+  agilhu_usuario_estado:
+    _attributes: { phpName: AgilhuUsuarioEstado }
+    use_id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    use_usuario: { type: VARCHAR, size: '100', required: false }
+    use_estado: { type: BOOLEAN, required: false }
+  chat:
+    _attributes: { phpName: Chat }
+    id: { type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    de: { type: VARCHAR, size: '255', required: true, defaultValue: '' }
+    para: { type: VARCHAR, size: '255', required: true, defaultValue: '' }
+    message: { type: LONGVARCHAR, required: true }
+    sent: { type: TIMESTAMP, required: true }
+    recd: { type: INTEGER, required: true, defaultValue: '0' }

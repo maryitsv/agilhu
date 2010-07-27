@@ -1,0 +1,18 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Gestion de usuarios
+    description:  El administrador del sistema gestiona usuarios
+    keywords:     usuarios, gestion,admin
+    language:     es
+    robots:       index, follow
+
+  stylesheets:    [extjs/resources/css/ext-all.css,extjs/resources/css/xtheme-blue.css,main.css]
+
+  javascripts:    [extjs/adapter/ext/ext-base.js,extjs/ext-all.js,extjs/src/locale/ext-lang-es.js,usuario/agGestionUsuario.js,aux/Ext.ux.grid.Search.js,aux/funciones.js,principal/principalAdmin.js,usuario/actualizarClave.js,usuario/actualizarDatos.js]
+
+  has_layout:     on
+  layout:         layout
+

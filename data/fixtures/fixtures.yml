@@ -1,0 +1,60 @@
+# # Populate this file with data to be loaded by your ORM's *:data-load task.
+# # You can create multiple files in this directory (i.e. 010_users.yml,
+# # 020_articles.yml, etc) which will be loaded in alphabetical order.
+# # 
+# # See documentation for your ORM's *:data-load task for more information.
+######################################
+# # para que cargen los datos
+# # symfony propel-load-data
+# User:
+#   fabien:
+#     username: fabien
+#     password: changeme
+#     name:     Fabien Potencier
+#     email:    fabien.potencier@symfony-project.com
+#   kris:
+#     username: Kris.Wallsmith
+#     password: changeme
+#     name:     Kris Wallsmith
+#     email:    kris.wallsmith@symfony-project.com
+AgilhuRol:                             
+  first_rol:                       
+    rol_id:      
+    rol_nombre: admin
+ 
+  second_rol:                       
+    rol_id:      
+    rol_nombre: usuario
+
+AgilhuUsuario:
+  firs_usu:
+    usu_id:
+    rol_id: first_rol
+    usu_usuario: maryit
+    usu_clave: maryit
+    usu_nombres: maryit viviana
+    usu_apellidos: sanchez vivas
+    usu_correo: maryitsv@gmail.com
+    usu_estado: 1
+
+AgilhuRolProyecto:
+  firs_rop:
+    rop_id: 2
+    rop_nombre: tester
+    rop_descipcion: es el encargado de probar las diversas aplicaciones
+
+AgilhuProyecto:
+  firs_proy:
+    pro_id:
+    usu_id: firs_usu
+    pro_nombre: gran danes
+    pro_estado: definido
+
+AgilhuParticipante:
+  firs_participante:
+    pro_id: firs_proy
+    usu_id: firs_usu
+    rop_id: firs_rop
+    estado: por definir
+
+

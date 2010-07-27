@@ -1,0 +1,49 @@
+/*!
+ * Ext JS Library 3.1.1
+ * Copyright(c) 2006-2010 Ext JS, LLC
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+.x-grid3-summary-row {
+    border-left:1px solid #fff;
+    border-right:1px solid #fff;
+    color:#333;
+    background: #f1f2f4;
+}
+.x-grid3-summary-row .x-grid3-cell-inner {
+    font-weight:bold;
+    padding-bottom:4px;
+}
+.x-grid3-cell-first .x-grid3-cell-inner {
+    padding-left:16px;
+}
+.x-grid-hide-summary .x-grid3-summary-row {
+    display:none;
+}
+.x-grid3-summary-msg {
+    padding:4px 16px;
+    font-weight:bold;
+}
+ 
+       .x-grid3-cell-inner {
+            font-family:"segoe ui",tahoma, arial, sans-serif;
+        }
+        .x-grid-group-hd div {
+            font-family:"segoe ui",tahoma, arial, sans-serif;
+        }
+        .x-grid3-hd-inner {
+            font-family:"segoe ui",tahoma, arial, sans-serif;
+            font-size:12px;
+        }
+        .x-grid3-body .x-grid3-td-cost {
+            background-color:#f1f2f4;
+        }
+        .x-grid3-summary-row .x-grid3-td-cost {
+            background-color:#e1e2e4;
+        }
+        .icon-grid {
+            background-image:url(../shared/icons/fam/grid.png) !important;
+        }
+        .x-grid3-dirty-cell {
+            background-image:none;
+        }

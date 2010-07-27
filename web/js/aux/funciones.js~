@@ -1,0 +1,84 @@
+/*Variables globales*/
+var rolesProyecto=[];
+var URL_AGILHU='http://vmlabs04.eisc.univalle.edu.co/~maryitsv/agilhu-v3/web/';
+Ext.BLANK_IMAGE_URL = '../extjs/resources/images/default/s.gif';
+var widthCentro=500;
+var heightCentro=500;
+
+function tieneRol(rol)
+{
+	for(i=0;i<rolesProyecto.length;i++)
+	{
+		//agaviso(rolesProyecto[i]);
+		if(rolesProyecto[i]==rol)
+		{
+		return true;
+		}
+	}
+return false;
+}
+
+/*Funciones para el manejo de las cookies*/	
+function crearRecordatorio(cookieNombre,cookieValor) {
+		var today = new Date();
+		var expire = new Date();
+		expire.setTime(today.getTime() + 3600000*24*30*12);
+			document.cookie = cookieNombre+"="+escape(cookieValor)+ ";expires="+expire.toGMTString(); 
+}
+		
+function leerGalleta(cookieNombre){
+	if (document.cookie.length>0){
+	  c_start=document.cookie.indexOf(cookieNombre + "=");
+	  if (c_start!=-1){ 
+	    c_start=c_start + cookieNombre.length+1; 
+	    c_end=document.cookie.indexOf(";",c_start);
+	    if (c_end==-1) c_end=document.cookie.length;
+	  	  return unescape(document.cookie.substring(c_start,c_end));
+	    } 
+	  }
+}
+
+
+function cambiaEstilo( nuevoestilo){
+		var ruta="../js/extjs/resources/css/"+nuevoestilo+"" ;
+		crearRecordatorio('agTema',ruta);
+		Ext.util.CSS.swapStyleSheet('theme', ruta);
+}
+
+function ponEstilo(){
+ 	Ext.util.CSS.swapStyleSheet('theme', leerGalleta('agTema'));
+}
+/*Manejo de mensaje para el usuario*/		
+function agalerta(mensaje)
+{
+	Ext.Msg.show
+	({
+		title:'Alerta!',msg: mensaje,buttons: Ext.Msg.OK,
+		animEl: 'elId',icon: Ext.MessageBox.INFO
+	});				
+}
+
+function agaviso(mensaje)//este no requiere de pulsar el ok
+{
+	Ext.example.msg('Aviso',mensaje);				
+}
+
+function agadvertencia(mensaje)
+{
+	Ext.MessageBox.show
+	({
+		title: 'Advertencia',msg: mensaje,
+		buttons: Ext.MessageBox.OK,animEl: 'mb9',
+		icon: Ext.MessageBox.WARNING
+	});
+}
+
+
+function agerror(mensaje)
+{
+	Ext.Msg.show
+	({
+		title:'Error',msg: mensaje,buttons: Ext.Msg.OK,
+		animEl: 'elId',con: Ext.MessageBox.ERROR
+	});
+}
