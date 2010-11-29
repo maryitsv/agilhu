@@ -20,7 +20,7 @@ return {
 			+'<img src="../images/ff.png"><a href="http://www.mozilla-europe.org/es/firefox/">Firefox 3.0</a><br/>'
 			+'<img src="../images/chr.png"><a href="http://www.google.com/chrome?hl=es">Google Chrome</a><br/>'
 			+'<img src="../images/op.png"><a href="http://www.opera.com/">Opera</a><br/><br/>'
-		+'<font>'
+		+'<font>Descargar el manual <a href="http://vmlabs04.eisc.univalle.edu.co/~maryitsv/agilhu-manual.pdf">aqu&iacute;</a> </font>'
 		+'</div>'
 		+'</div>';
 		
@@ -137,7 +137,7 @@ return {
                                                // autoWidth:true,
 						border:true,
 						bodyStyle:'padding:15px 30px 25px 30px',
-						html:"<font style='font-size:10.5pt;'>Si aun no lo ha provado registrese lo invitamos a ser parte de esta comunidad</font>"
+						html:"<font style='font-size:10.5pt;'>Si aun no lo ha probado registrese lo invitamos a ser parte de esta comunidad</font>"
 						}
 						]
 					}
@@ -160,8 +160,7 @@ return {
             
 					if (obj.success)
 					{
-                                          // agadvertencia(obj.success);
-                                              
+                                          // agadvertencia(obj.success);      
                                          //  agadvertencia(obj.mensaje);
 				           if(obj.mensaje=='admin')//me toco quitarle el .value
                       	  		   { window.location = URL_AGILHU+'padmin.php/principal';}

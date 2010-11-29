@@ -9,9 +9,9 @@ default:
     language:     es
     robots:       index, follow
 
-  stylesheets:    [extjs/resources/css/ext-all.css,extjs/resources/css/xtheme-blue.css,main.css,file-upload.css,example.css,Spotlight.css,Spinner.css,Ext.ux.form.LovCombo.css,lovcombo.css,GroupSummary.css,treegrid.css]
+  stylesheets:    [../extjs/resources/css/ext-all.css,../extjs/resources/css/xtheme-blue.css,main.css,file-upload.css,example.css,Spotlight.css,Spinner.css,Ext.ux.form.LovCombo.css,lovcombo.css,GroupSummary.css,treegrid.css]
 
-  javascripts:    [http://www.google.com/jsapi,extjs/adapter/ext/ext-base.js,extjs/ext-all.js,extjs/src/locale/ext-lang-es.js,usuario/actualizarDatos.js,usuario/actualizarClave.js,principal/principal.js,aux/Ext.ux.grid.Search.js,aux/funciones.js,proyecto/proyecto.js,proyecto/invitaciones.js,documento/documentos.js,aux/FileUploadField.js,aux/example.js,modulo/modulo.js,proyecto/listaProyecto.js,HU/historiaUsuario.js,aux/Ext.ux.grid.RowExpander.js,participante/participante.js,participante/mensaje.js,aux/Spotlight.js,PruebaExperto/pruebaHistoria.js,Spinner/Spinner.js,Spinner/SpinnerField.js,aux/Ext.ux.form.LovCombo.js,proyecto/datosProyecto.js,reporte/reportes.js,aux/GroupSummary.js,aux/TreeGridSorter.js,aux/TreeGridColumnResizer.js,aux/TreeGridNodeUI.js,aux/TreeGridLoader.js,aux/TreeGridColumns.js,aux/TreeGrid.js]
+  javascripts:    [http://www.google.com/jsapi,../extjs/adapter/ext/ext-base.js,../extjs/ext-all.js,../extjs/src/locale/ext-lang-es.js,usuario/actualizarDatos.js,usuario/actualizarClave.js,principal/principal.js,auxiliares/Ext.ux.grid.Search.js,auxiliares/funciones.js,proyecto/proyecto.js,proyecto/invitaciones.js,documento/documentos.js,auxiliares/FileUploadField.js,auxiliares/example.js,modulo/modulo.js,proyecto/listaProyecto.js,HU/wammet-funestimacion.js,HU/historiaUsuario.js,auxiliares/Ext.ux.grid.RowExpander.js,participante/participante.js,participante/mensaje.js,auxiliares/Spotlight.js,PruebaExperto/pruebaHistoria.js,Spinner/Spinner.js,Spinner/SpinnerField.js,auxiliares/Ext.ux.form.LovCombo.js,proyecto/datosProyecto.js,reporte/reportes.js,auxiliares/GroupSummary.js,auxiliares/TreeGridSorter.js,auxiliares/TreeGridColumnResizer.js,auxiliares/TreeGridNodeUI.js,auxiliares/TreeGridLoader.js,auxiliares/TreeGridColumns.js,auxiliares/TreeGrid.js]
 
   has_layout:     on
   layout:         layout

@@ -1,0 +1,108 @@
+Sep 13 11:27:13 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:27:13 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:27:13 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:27:13 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /autenticacion with parameters array (  'module' => 'autenticacion',  'action' => 'index',)
+Sep 13 11:27:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 13 11:27:14 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Sep 13 11:27:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 13 11:27:14 symfony [info] {autenticacionActions} Call "autenticacionActions->executeIndex()"
+Sep 13 11:27:14 symfony [info] {sfPHPView} Render "/home/nfs_home/maryitsv/public_html/agilhu-v42/apps/agilhu/modules/autenticacion/templates/indexSuccess.php"
+Sep 13 11:27:14 symfony [info] {sfPHPView} Decorate content with "/home/nfs_home/maryitsv/public_html/agilhu-v42/apps/agilhu/templates/layout.php"
+Sep 13 11:27:14 symfony [info] {sfPHPView} Render "/home/nfs_home/maryitsv/public_html/agilhu-v42/apps/agilhu/templates/layout.php"
+Sep 13 11:27:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 13 11:27:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 13 11:27:14 symfony [info] {sfWebDebugLogger} Configuration 667.28 ms (9)
+Sep 13 11:27:14 symfony [info] {sfWebDebugLogger} Action "autenticacion/index" 12.88 ms (1)
+Sep 13 11:27:14 symfony [info] {sfWebDebugLogger} View "Success" for "autenticacion/index" 83.24 ms (1)
+Sep 13 11:27:14 symfony [info] {sfWebResponse} Send content (51629 o)
+Sep 13 11:27:22 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:27:23 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:27:23 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:27:23 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /autenticacion/cargar with parameters array (  'module' => 'autenticacion',  'action' => 'cargar',)
+Sep 13 11:27:23 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 13 11:27:23 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Sep 13 11:27:23 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 13 11:27:23 symfony [info] {autenticacionActions} Call "autenticacionActions->executeCargar()"
+Sep 13 11:27:23 symfony [debug] {sfPropelLogger} exec: SET NAMES 'utf8'
+Sep 13 11:27:23 symfony [debug] {sfPropelLogger} prepare: SELECT agilhu_usuario.USU_ID, agilhu_usuario.ROL_ID, agilhu_usuario.USU_USUARIO, agilhu_usuario.USU_CLAVE, agilhu_usuario.USU_NOMBRES, agilhu_usuario.USU_APELLIDOS, agilhu_usuario.USU_CORREO, agilhu_usuario.USU_ESTADO FROM agilhu_usuario WHERE agilhu_usuario.USU_ESTADO=:p1 AND agilhu_usuario.USU_USUARIO=:p2 AND agilhu_usuario.USU_CLAVE=:p3 LIMIT 1
+Sep 13 11:27:23 symfony [debug] {sfPropelLogger} Binding 'habilitado' at position :p1 w/ PDO type PDO::PARAM_STR
+Sep 13 11:27:23 symfony [debug] {sfPropelLogger} Binding 'maryitsv' at position :p2 w/ PDO type PDO::PARAM_STR
+Sep 13 11:27:23 symfony [debug] {sfPropelLogger} Binding 'bWFyeWl0c3Y=' at position :p3 w/ PDO type PDO::PARAM_STR
+Sep 13 11:27:23 symfony [info] {myUser} User is authenticated
+Sep 13 11:27:23 symfony [debug] {sfPropelLogger} prepare: SELECT agilhu_rol.ROL_ID, agilhu_rol.ROL_NOMBRE FROM agilhu_rol WHERE agilhu_rol.ROL_ID=:p1
+Sep 13 11:27:23 symfony [debug] {sfPropelLogger} Binding 2 at position :p1 w/ PDO type PDO::PARAM_INT
+Sep 13 11:27:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 13 11:27:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 13 11:27:23 symfony [info] {sfWebDebugLogger} Configuration 6.77 ms (8)
+Sep 13 11:27:23 symfony [info] {sfWebDebugLogger} Action "autenticacion/cargar" 220.59 ms (1)
+Sep 13 11:27:23 symfony [info] {sfWebDebugLogger} View "None" for "autenticacion/cargar" 0.02 ms (1)
+Sep 13 11:27:23 symfony [info] {sfWebResponse} Send content (36 o)
+Sep 13 11:27:23 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:27:23 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:27:23 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:27:23 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/pusuario.php/principal" (/).
+Sep 13 11:27:59 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:28:00 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:28:00 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:28:00 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/pusuario.php/principal" (/).
+Sep 13 11:45:31 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:45:31 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:45:31 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:45:31 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /historiasusuario/eliminarHistoria with parameters array (  'module' => 'historiasusuario',  'action' => 'eliminarHistoria',)
+Sep 13 11:45:31 symfony [info] {sfFrontWebController} Action "historiasusuario/eliminarHistoria" does not exist
+Sep 13 11:45:31 symfony [err] {sfError404Exception} Action "historiasusuario/eliminarHistoria" does not exist.
+Sep 13 11:45:38 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:45:38 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:45:38 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:45:38 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /autencitcaion with parameters array (  'module' => 'autencitcaion',  'action' => 'index',)
+Sep 13 11:45:38 symfony [info] {sfFrontWebController} Action "autencitcaion/index" does not exist
+Sep 13 11:45:38 symfony [err] {sfError404Exception} Action "autencitcaion/index" does not exist.
+Sep 13 11:45:45 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:45:45 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:45:45 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:45:45 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /autenticaion with parameters array (  'module' => 'autenticaion',  'action' => 'index',)
+Sep 13 11:45:45 symfony [info] {sfFrontWebController} Action "autenticaion/index" does not exist
+Sep 13 11:45:45 symfony [err] {sfError404Exception} Action "autenticaion/index" does not exist.
+Sep 13 11:45:47 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:45:47 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:45:47 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:45:47 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /autenticacion with parameters array (  'module' => 'autenticacion',  'action' => 'index',)
+Sep 13 11:45:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 13 11:45:47 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Sep 13 11:45:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 13 11:45:47 symfony [info] {autenticacionActions} Call "autenticacionActions->executeIndex()"
+Sep 13 11:45:47 symfony [info] {sfPHPView} Render "/home/nfs_home/maryitsv/public_html/agilhu-v42/apps/agilhu/modules/autenticacion/templates/indexSuccess.php"
+Sep 13 11:45:48 symfony [info] {sfPHPView} Decorate content with "/home/nfs_home/maryitsv/public_html/agilhu-v42/apps/agilhu/templates/layout.php"
+Sep 13 11:45:48 symfony [info] {sfPHPView} Render "/home/nfs_home/maryitsv/public_html/agilhu-v42/apps/agilhu/templates/layout.php"
+Sep 13 11:45:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 13 11:45:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 13 11:45:48 symfony [info] {sfWebDebugLogger} Configuration 5.34 ms (9)
+Sep 13 11:45:48 symfony [info] {sfWebDebugLogger} Action "autenticacion/index" 12.93 ms (1)
+Sep 13 11:45:48 symfony [info] {sfWebDebugLogger} View "Success" for "autenticacion/index" 61.30 ms (1)
+Sep 13 11:45:48 symfony [info] {sfWebResponse} Send content (52473 o)
+Sep 13 11:45:56 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:45:56 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:45:56 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:45:56 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /autenticacion/cargar with parameters array (  'module' => 'autenticacion',  'action' => 'cargar',)
+Sep 13 11:45:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 13 11:45:56 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Sep 13 11:45:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 13 11:45:56 symfony [info] {autenticacionActions} Call "autenticacionActions->executeCargar()"
+Sep 13 11:45:56 symfony [debug] {sfPropelLogger} exec: SET NAMES 'utf8'
+Sep 13 11:45:56 symfony [debug] {sfPropelLogger} prepare: SELECT agilhu_usuario.USU_ID, agilhu_usuario.ROL_ID, agilhu_usuario.USU_USUARIO, agilhu_usuario.USU_CLAVE, agilhu_usuario.USU_NOMBRES, agilhu_usuario.USU_APELLIDOS, agilhu_usuario.USU_CORREO, agilhu_usuario.USU_ESTADO FROM agilhu_usuario WHERE agilhu_usuario.USU_ESTADO=:p1 AND agilhu_usuario.USU_USUARIO=:p2 AND agilhu_usuario.USU_CLAVE=:p3 LIMIT 1
+Sep 13 11:45:56 symfony [debug] {sfPropelLogger} Binding 'habilitado' at position :p1 w/ PDO type PDO::PARAM_STR
+Sep 13 11:45:56 symfony [debug] {sfPropelLogger} Binding 'maryitsv' at position :p2 w/ PDO type PDO::PARAM_STR
+Sep 13 11:45:56 symfony [debug] {sfPropelLogger} Binding 'bWFyeWl0c3Y=' at position :p3 w/ PDO type PDO::PARAM_STR
+Sep 13 11:45:56 symfony [info] {myUser} User is authenticated
+Sep 13 11:45:56 symfony [debug] {sfPropelLogger} prepare: SELECT agilhu_rol.ROL_ID, agilhu_rol.ROL_NOMBRE FROM agilhu_rol WHERE agilhu_rol.ROL_ID=:p1
+Sep 13 11:45:56 symfony [debug] {sfPropelLogger} Binding 2 at position :p1 w/ PDO type PDO::PARAM_INT
+Sep 13 11:45:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 13 11:45:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 13 11:45:56 symfony [info] {sfWebDebugLogger} Configuration 3.91 ms (8)
+Sep 13 11:45:56 symfony [info] {sfWebDebugLogger} Action "autenticacion/cargar" 213.76 ms (1)
+Sep 13 11:45:56 symfony [info] {sfWebDebugLogger} View "None" for "autenticacion/cargar" 0.02 ms (1)
+Sep 13 11:45:57 symfony [info] {sfWebResponse} Send content (36 o)
+Sep 13 11:45:57 symfony [info] {sfPatternRouting} Connect sfRoute "homepage" (/)
+Sep 13 11:45:57 symfony [info] {sfPatternRouting} Connect sfRoute "default_index" (/:module)
+Sep 13 11:45:57 symfony [info] {sfPatternRouting} Connect sfRoute "default" (/:module/:action/*)
+Sep 13 11:45:57 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/pusuario.php/principal" (/).

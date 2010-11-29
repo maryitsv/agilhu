@@ -66,21 +66,15 @@ class principalActions extends sfActions
   */  
   public function executeSalir()
   {
-    
 
     if($this->getUser()->isAuthenticated())
     {
       $this->getUser()->setAuthenticated(false);
       $this->getUser()->getAttributeHolder()->clear();
-    }     //http://vmlabs04.eisc.univalle.edu.co/~maryitsv/Dropbox/agilhu/web
-   
-   /*$urlApp=$this->getParameter('urlApp'); 
-    if($urlApp!='')
-    {
-       return $this->redirect($urlApp.'index.php/autenticacion');
-    }*/
-    
-    return $this->redirect('http://vmlabs04.eisc.univalle.edu.co/~maryitsv/agilhu-v2/web/index.php/autenticacion');
+    }    
+    $url="http://vmlabs04.eisc.univalle.edu.co/~maryitsv/agilhu-v42/web/index.php/autenticacion";
+   // return $this->redirect(URL_AGILHU.'index.php/autenticacion');
+    return $this->redirect($url);
 
   }
 

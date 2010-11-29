@@ -283,6 +283,7 @@ protected function invitarUsuarios()
 		                
 		$conexion->add(AgilhuParticipantePeer::PRO_ID,$proId);
                 $conexion->add(AgilhuParticipantePeer::USU_ID,$usuId);
+		$conexion->add(AgilhuParticipantePeer::ESTADO,'Aceptado');
 		
 		$roles = AgilhuRolProyectoPeer::doSelect($conexion);
 		
@@ -319,7 +320,8 @@ protected function invitarUsuarios()
 		}
 		$conexion->add(AgilhuParticipantePeer::ESTADO,'Aceptado');
 		
-		$numero_participantes = AgilhuParticipantePeer::doCount($conexion);
+		$numero_participantes = AgilhuUsuarioPeer::doCount($conexion);//cambio correccion paginador
+
 	    	$conexion->setLimit($this->getRequestParameter('limit'));
 		$conexion->setOffset($this->getRequestParameter('start'));
 		$participantes = AgilhuUsuarioPeer::doSelect($conexion);

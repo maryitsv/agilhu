@@ -77,6 +77,12 @@ class pruebaexpertoActions extends sfActions
         $salida = $this->listarHUxProyecto();
         break;
       
+      ///start cambio prueba experto
+      case "listp":
+	$salida = $this->listarPreguntas();
+	break;
+      ///end cambio prueba experto
+      
       default:
         $salida =  "{failure:true}";
     }
@@ -84,95 +90,42 @@ class pruebaexpertoActions extends sfActions
     return $this->renderText($salida);
   }
   
-  /*actualizado por maryit sanchez el 16 abril 2010*/
+  
   /**
-  *Este metodo devuelve la lista de las historias de usuario que pertenecen a 
-  *un proyecto determinado por el id pasado como parametro
+  * En esta funcion se genera el listado de preguntas, con las cuales se evaluaran las 
+  * historias de usuario que pertenecen al proyecto 
   *
-  *@author Luis Armando Nuñez
-  *@since 2010-3-10
-  *@param id identificador del proyecto
-  *//*
-  private function listarHUxProyecto()
+  * @author Luis Armando Nuñez
+  * @since 2010-08-19
+  * @param proId identificador del proyecto.
+  */
+  private function listarPreguntas()
   {
-    //selecciono todos las historias de usuario que no han sido probadas
-    $pro_id  = $this->getUser()->getAttribute('proyectoSeleccionado');
-    $fila=0;
-    $datos;
-  
-    $c = new Criteria();
-    $c->add(AgilhuHistoriaUsuarioPeer::PRO_ID, $pro_id);
-    $c->addJoin(AgilhuHistoriaUsuarioPeer::HIS_ID, AgilhuPruebaExpertoPeer::HIS_ID_ASOCIADA,Criteria::LEFT_JOIN);
+	//obtengo el id del proyecto para generar las preguntas
+	$proId = $this->getUser()->getAttribute('proyectoSeleccionado');
     
-    $historias = AgilhuHistoriaUsuarioPeer::doSelect($c);
-    foreach($historias As $historia)
-    {
-      $datos[$fila]['his_id'] = $historia->getHisId();
-      $datos[$fila]['mod_id'] = $historia->getModId();
-      $datos[$fila]['his_identificador_historia'] = $historia->getHisIdentificadorHistoria();
-      $datos[$fila]['his_nombre'] = $historia->getHisNombre();
-      $datos[$fila]['created_at'] = $historia->getCreatedAt(); //timestamp
-      $datos[$fila]['his_creador'] = $historia->getHisCreador();
-      $datos[$fila]['updated_at'] = $historia->getUpdatedAt(); //timestamp cambiar en la vista
-      $datos[$fila]['his_prioridad'] = $historia->getHisPrioridad();
-      $datos[$fila]['his_responsable'] = $historia->getHisResponsable();
-      $datos[$fila]['pro_id'] = $historia->getProId();
-      $datos[$fila]['his_dependencias'] = $historia->getHisDependencias();
-      $datos[$fila]['his_riesgo'] = $historia->getHisRiesgo();
-      $datos[$fila]['his_tiempo_estimado'] = $historia->getHisTiempoEstimado();
-      $datos[$fila]['his_tiempo_real'] = $historia->getHisTiempoReal();
-      $datos[$fila]['his_descripcion'] = $historia->getHisDescripcion();
-      $datos[$fila]['his_version'] = $historia->getHisVersion();
-      $datos[$fila]['his_unidad_tiempo'] = $historia->getHisUnidadTiempo();
-      $datos[$fila]['his_tipo_actividad'] = $historia->getHisTipoActividad();
-      $datos[$fila]['his_observaciones'] = $historia->getHisObservaciones();
-      $datos[$fila]['his_probada'] = "NO";
-      $fila++;
-    }
-  
-    //seleccionar todas las historias de usuario que ya fueron probadas
-    $c = new Criteria();
-    $c->add(AgilhuHistoriaUsuarioPeer::PRO_ID, $pro_id);
-    $c->addJoin(AgilhuHistoriaUsuarioPeer::HIS_ID, AgilhuPruebaExpertoPeer::HIS_ID_ASOCIADA);
-    $historias = AgilhuHistoriaUsuarioPeer::doSelect($c);
-  
-    foreach($historias As $historia)
-    {
-      $datos[$fila]['his_id'] = $historia->getHisId();
-      $datos[$fila]['mod_id'] = $historia->getModId();
-      $datos[$fila]['his_identificador_historia'] = $historia->getHisIdentificadorHistoria();
-      $datos[$fila]['his_nombre'] = $historia->getHisNombre();
-      $datos[$fila]['created_at'] = $historia->getCreatedAt(); //timestamp
-      $datos[$fila]['his_creador'] = $historia->getHisCreador();
-      $datos[$fila]['updated_at'] = $historia->getUpdatedAt(); //timestamp cambiar en la vista
-      $datos[$fila]['his_prioridad'] = $historia->getHisPrioridad();
-      $datos[$fila]['his_responsable'] = $historia->getHisResponsable();
-      $datos[$fila]['pro_id'] = $historia->getProId();
-      $datos[$fila]['his_dependencias'] = $historia->getHisDependencias();
-      $datos[$fila]['his_riesgo'] = $historia->getHisRiesgo();
-      $datos[$fila]['his_tiempo_estimado'] = $historia->getHisTiempoEstimado();
-      $datos[$fila]['his_tiempo_real'] = $historia->getHisTiempoReal();
-      $datos[$fila]['his_descripcion'] = $historia->getHisDescripcion();
-      $datos[$fila]['his_version'] = $historia->getHisVersion();
-      $datos[$fila]['his_unidad_tiempo'] = $historia->getHisUnidadTiempo();
-      $datos[$fila]['his_tipo_actividad'] = $historia->getHisTipoActividad();
-      $datos[$fila]['his_observaciones'] = $historia->getHisObservaciones();
-      $datos[$fila]['his_probada'] = "SI";
-      $fila++;
-    
-   }
-    
-    if(isset($datos))
-    {
-      $salida = "{success:true, hispro:".json_encode($datos)."}";
-    }else{
-      $salida = "{ success:true, hispro:{}}";
-    }
-    return $salida;
-    
+	//consulta a la bd que contiene las preguntas
+	$c = new Criteria();
+	$c->add(AgilhuPreguntasPeer::PRE_PRO_ID, $proId);
+	$listPreguntas = AgilhuPreguntasPeer::doSelect($c);
+	
+	$ind   = 0;
+	$datos = array();
+	foreach($listPreguntas as $pregunta)
+	{
+	  $datos[$ind]['id'] = $pregunta->getPreId();
+	  $datos[$ind]['proId'] = $pregunta->getPreProId();
+	  $datos[$ind]['descripcion'] = $pregunta->getPreDescripcion();
+	  $datos[$ind]['carcalidad'] = $pregunta->getPreCaracteristicaCalidad();
+	  $datos[$ind]['categoria'] = $pregunta->getPreCategoria();
+	  $datos[$ind]['calificacion'] = 0;
+	  $ind++;
+	}
+	
+	$salida = "{ success : true, proId: $proId ,preguntas : ".json_encode($datos)."}";
+	return $salida;
   }
 
-*/
 
   private function listarHUxProyecto()
   {

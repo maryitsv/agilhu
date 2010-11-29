@@ -223,7 +223,7 @@ var PrincipalAdmin = function ()
 						         bodyStyle: Ext.isIE ? 'padding:0 0 15px 15px;' : 'padding:10px 15px;',
 						         items:[
 						                { xtype:'panel',border:false,
-								 autoLoad: {url: URL_AGILHU+'/ayuda/ayudaAdmin.html' ,scripts: true, scope: this},
+								 autoLoad: {url: URL_AGILHU+'ayuda/ayuda.html' ,scripts: true, scope: this},
 								}
 						              ]
 							});

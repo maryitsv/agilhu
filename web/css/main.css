@@ -71,6 +71,8 @@
 .xml_his{ background-image:url(../images/iconos/hu/xml.png) !important;}
 .xml_his_grande{ background-image:url(../images/iconos/hu/text-xml.png) !important;}
 .regresar_version{ background-image:url(../images/iconos/hu/back_his.png) !important;}
+.estimacion{ background-image:url(../images/iconos/hu/estimacion.png) !important;}
+.guardar{ background-image:url(../images/iconos/hu/save.png) !important;}
 
 /*invitacion*/
 .aceptada_inv{ background-image:url(../images/iconos/invitacion/accep.png) !important;}

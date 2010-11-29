@@ -1,6 +1,3 @@
-//clase para con el formulario para la creacion de una historia de usuario
-
-//no olvidar before blur y separacion ' ' en el lov combo
 var HistoriaUsuario = function () 
 {
 
@@ -15,10 +12,29 @@ var HistoriaUsuario = function ()
     var enviarDatos = function(btn){
 		if(Ext.getCmp('btForm').getText()=='Versionar')
 		{
-		  nuevaVersionHistoria();
+			var temporal_his_id=Ext.getCmp('his_id').getValue();
+			if(temporal_his_id!=''){
+			  nuevaVersionHistoria();
+			}
+			else{
+			  Ext.Msg.alert('Informaci&oacute;n','Selecione primero una historia de usuario a versionar');
+			}
 		}
 		else{
-		  enviarDatosDefinitivo(btn.getText());
+
+			if(Ext.getCmp('btForm').getText()=='Actualizar')
+			{
+				var temporal_his_id=Ext.getCmp('his_id').getValue();
+				if(temporal_his_id!=''){
+				  enviarDatosDefinitivo(btn.getText());
+				}
+				else{
+				  Ext.Msg.alert('Informaci&oacute;n','Selecione primero una historia de usuario a actualizar');
+				}
+			}
+			else{
+		 	 enviarDatosDefinitivo(btn.getText());
+			}
 		}
     }
 
@@ -26,7 +42,7 @@ var HistoriaUsuario = function ()
       Esta es la funcion encargada mandar los datos de una HU al servidor
       */
       var enviarDatosDefinitivo = function(btntext){
-		
+
 		if(formHU.getForm().isValid())
 		{
 		  formHU.getForm().submit({
@@ -50,6 +66,7 @@ var HistoriaUsuario = function ()
 		    {
 		        Ext.Msg.alert('inform',at.result.msg);
 		        jsonhispro.reload();
+			formHU.getForm().reset();
 		    },
 		    failure: function(fm,at)
 		    {
@@ -145,7 +162,7 @@ var HistoriaUsuario = function ()
         
             var treeAlias = new Ext.tree.TreePanel
             ({
-                loader: new Ext.tree.TreeLoader({dataUrl: URL_AGILHU+'pusuario/modulo/listarmodjer'}),
+                loader: new Ext.tree.TreeLoader({dataUrl: URL_AGILHU+'pusuario.php/modulo/listarmodjer'}),
                 root: new Ext.tree.AsyncTreeNode(),
                 rootVisible: false,
                 lines: false,
@@ -195,7 +212,7 @@ var HistoriaUsuario = function ()
          defaults:{layout:'form'},
          items:[
            {
-             xtype: 'hidden',name: 'his_id'
+             xtype: 'hidden',name: 'his_id',id:'his_id'
            },
            {
              columnWidth: '0.5',
@@ -477,7 +494,9 @@ var HistoriaUsuario = function ()
        }// los campos con la fecha de creacion y actualizacion no editables
        ],
        buttonAlign: 'center',
-       buttons: [{id:'btForm', text:'Crear',formBind: true, handler: enviarDatos}]
+       buttons: [{id:'btForm', iconCls:'guardar',text:'Crear',formBind: true, handler: enviarDatos},
+				  {text: 'Estimar', iconCls:'estimacion', handler: estimarHistoria, tooltip: 'Estimar el costo de la historia selecionada'}
+				  ]
       });
   
 
@@ -565,7 +584,27 @@ var HistoriaUsuario = function ()
         return ' '+val+' '+st.data.his_unidad_tiempo;
       }
 
-//modulo de una histori user
+  /**
+  * Funcion encargada de hacer el calculo de la estimacion para una historia de usuario.
+  * 
+  */
+  function estimarHistoria()
+  {
+      if(gridhu.getSelectionModel().getCount() > 0 ){
+	  var recordHistoria = gridhu.getSelectionModel().getSelected();
+	  var winEstimacion=agilhu.wammetEstimacion(recordHistoria.get('his_id'),recordHistoria.get('his_nombre'));
+	  winEstimacion.on('close',function(panel){
+	    jsonhispro.reload();
+	  });
+	  winEstimacion.show();
+
+      }else{
+	  Ext.Msg.alert('INFORM','Seleccione una historia de usuario');
+      }
+  }
+
+
+  //modulo de una historia user
    var filtroHisDataStore = new Ext.data.JsonStore({
 	id: 'filtroHisDataStore',
 	url: 'historiasusuario/listar', //cambiar a historia de usuario
@@ -591,8 +630,6 @@ var huSeleccionada;
           singleSelect:true,
           listeners: {
             rowselect: function(s, i, r){
-              //++responsablesDataStore.reload();
-              //++dependenciasDataStore.reload();
               Ext.getCmp('btForm').setText('Actualizar');
               
               formHU.getForm().loadRecord(r);
@@ -644,12 +681,14 @@ var huSeleccionada;
                xtype: 'buttongroup',
                title: 'Opciones de Historias de usurio',
                autoWidth: true,
-               columns: 4,
+               columns: 5,
                defaults: {xtype: 'button',scale: 'large',width: '100%',iconAlign: 'top'},
                items:[{text:'Nuevo',iconCls:'nueva_his',tooltip:'Crear nuevas historias de usuario',handler: crearHistoria },//prepara el formulario para la creacion de una nueva hu
 		      {text:'Nueva version',iconCls:'versionar_his',tooltip:'Crear una nueva version de una historia seleccionada',handler:versionarHistoria},//versionado de hu a partir de seleccionada
 		      {text: 'Consultar historial',iconCls:'historial_his',tooltip:'Consultar todas las versiones de una historia de usuario',handler:mostrarHistorial},
                	      {text: 'Exportar a XMI',iconCls:'xml_his_grande', handler: exportarHistoriatoXMI ,tooltip:'Pulse aqui para exportar a xmi'},
+			{text: 'Eliminar', iconCls:'eliminar', handler: eliminarHistoria, tooltip: 'Eliminar la historia selecionada'   }
+               	    //  {text: 'Estimar', iconCls:'xml_his_grande', handler: estimarHistoria, tooltip: 'Estimar el costo de la historia selecionada'   } //Estimacion integracion pendiente cambio de icono
                       ]
                },
 		{
@@ -1354,6 +1393,55 @@ resultadoPromEvalStore.load();
 
 function ImprimirHistoria(){
 
+}
+
+function eliminarHistoria(){
+
+	if(Ext.getCmp('his_identificador').getValue()!='')
+	{
+		Ext.MessageBox.confirm('Confirmacion','Desea borrar esta historia?', funcionEliminarHistoria);
+	}else {
+		Ext.MessageBox.alert('Advertencia','Seleccione una historia a borrar');
+	}
+}
+
+
+function funcionEliminarHistoria(btn){
+	if(btn=='yes'){
+	
+	if(gridhu.getSelectionModel().getCount() > 0 ){
+	var historiaSeleccionada = gridhu.selModel.getSelections(); 
+	var his_identificador=historiaSeleccionada[0].json.his_identificador_historia;
+	var his_id=historiaSeleccionada[0].json.his_id;
+
+		Ext.Ajax.request({  
+			waitMsg: 'Por Favor Espere...',
+			url:'historiasusuario/eliminar',
+			params: { 
+				his_identificador_historia:  his_identificador
+			}, 
+			success: function(response){
+			obj = Ext.util.JSON.decode(response.responseText);
+				if (obj.success)
+				{
+					agalerta(obj.mensaje);
+					jsonhispro.reload();
+				}
+				else 
+				{
+					agerror(obj.errors.reason);
+				}
+			},
+			failure: function(response){
+				var result=response.responseText;
+				agerror('No se pudo conectar con la base de datos');
+			}
+		});
+	}
+	else{
+	Ext.MessageBox.alert('Advertencia','Seleccione una historia a borrar');
+	}
+	}
 }
 
 ////////////////**Bloquear y desbloquear campos

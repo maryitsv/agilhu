@@ -316,10 +316,10 @@ var Reportes = function ()
                     id: 'info_mod'
                     },
                   //  moduloImprimirGrid,
-                    {
-                    boxLabel: 'Incluir resultados de las evaluaciones de las HU',
+                   {
+                 //   boxLabel: 'Incluir resultados de las evaluaciones de las HU',
                     name: 'info_eval',
-                    checked  :true,
+		    hidden:true,
                     id: 'info_eval'
                     }
                   ]

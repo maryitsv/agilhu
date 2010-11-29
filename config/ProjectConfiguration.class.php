@@ -1,4 +1,5 @@
 <?php
+define('URL_AGILHU','http://vmlabs04.eisc.univalle.edu.co/~luisarns/agilhu-v41/web/');
 
 require_once '/usr/share/php/symfony/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();

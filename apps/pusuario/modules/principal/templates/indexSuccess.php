@@ -3,7 +3,6 @@
 	echo javascript_tag("Ext.onReady(function(){
 		var principal=Principal();              
 		});");
-       // echo javascript_tag("Ext.onReady(Principal.init, Principal);");
 ?>
 
 <div id="header" style="background:white;">

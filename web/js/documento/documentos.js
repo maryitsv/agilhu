@@ -348,7 +348,7 @@ var formDocumento=new Ext.FormPanel({
 				    }
 
 					gridPanelListaDocumentos.enable(); 
-		
+					dataStoreDocumentos.reload();
 					Ext.getCmp('btnDescargarDoc').setText('Descargar');
 					Ext.getCmp('btnEliminarDoc').setText('Eliminar');
 				  },

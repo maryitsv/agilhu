@@ -3,7 +3,7 @@
 -- agilhu_documento
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_documento" CASCADE;
+--drop TABLE "agilhu_documento" CASCADE;
 
 
 CREATE TABLE "agilhu_documento"
@@ -31,7 +31,7 @@ SET search_path TO public;
 -- agilhu_historia_usuario
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_historia_usuario" CASCADE;
+--drop TABLE "agilhu_historia_usuario" CASCADE;
 
 
 CREATE TABLE "agilhu_historia_usuario"
@@ -65,58 +65,13 @@ CREATE TABLE "agilhu_historia_usuario"
 COMMENT ON TABLE "agilhu_historia_usuario" IS '';
 
 
-SET search_path TO public;
------------------------------------------------------------------------------
--- agilhu_mensaje_enviado
------------------------------------------------------------------------------
-
-DROP TABLE "agilhu_mensaje_enviado" CASCADE;
-
-
-CREATE TABLE "agilhu_mensaje_enviado"
-(
-	"men_id" serial  NOT NULL,
-	"men_pro_id" INTEGER,
-	"men_de" VARCHAR(250),
-	"men_para" VARCHAR(250),
-	"men_asunto" VARCHAR(250),
-	"created_at" DATE,
-	"men_mensaje" VARCHAR(250),
-	PRIMARY KEY ("men_id")
-);
-
-COMMENT ON TABLE "agilhu_mensaje_enviado" IS '';
-
-
-SET search_path TO public;
------------------------------------------------------------------------------
--- agilhu_mensaje_recibido
------------------------------------------------------------------------------
-
-DROP TABLE "agilhu_mensaje_recibido" CASCADE;
-
-
-CREATE TABLE "agilhu_mensaje_recibido"
-(
-	"men_id" serial  NOT NULL,
-	"men_pro_id" INTEGER,
-	"men_de" VARCHAR(250),
-	"men_para" VARCHAR(250),
-	"men_asunto" VARCHAR(250),
-	"created_at" DATE,
-	"men_mensaje" VARCHAR(250),
-	PRIMARY KEY ("men_id")
-);
-
-COMMENT ON TABLE "agilhu_mensaje_recibido" IS '';
-
 
 SET search_path TO public;
 -----------------------------------------------------------------------------
 -- agilhu_modulo
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_modulo" CASCADE;
+--drop TABLE "agilhu_modulo" CASCADE;
 
 
 CREATE TABLE "agilhu_modulo"
@@ -128,6 +83,8 @@ CREATE TABLE "agilhu_modulo"
 	"created_at" TIMESTAMP,
 	"updated_at" TIMESTAMP,
 	"mod_descripcion" TEXT,
+	"mod_padre" INTEGER,
+	"mod_habilitado" VARCHAR(20),
 	PRIMARY KEY ("mod_id")
 );
 
@@ -139,7 +96,7 @@ SET search_path TO public;
 -- agilhu_participante
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_participante" CASCADE;
+--drop TABLE "agilhu_participante" CASCADE;
 
 
 CREATE TABLE "agilhu_participante"
@@ -161,7 +118,7 @@ SET search_path TO public;
 -- agilhu_preguntas
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_preguntas" CASCADE;
+--drop TABLE "agilhu_preguntas" CASCADE;
 
 
 CREATE TABLE "agilhu_preguntas"
@@ -182,7 +139,7 @@ SET search_path TO public;
 -- agilhu_proyecto
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_proyecto" CASCADE;
+--drop TABLE "agilhu_proyecto" CASCADE;
 
 
 CREATE TABLE "agilhu_proyecto"
@@ -210,7 +167,7 @@ SET search_path TO public;
 -- agilhu_prueba_experto
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_prueba_experto" CASCADE;
+--drop TABLE "agilhu_prueba_experto" CASCADE;
 
 
 CREATE TABLE "agilhu_prueba_experto"
@@ -237,7 +194,7 @@ SET search_path TO public;
 -- agilhu_rol
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_rol" CASCADE;
+--drop TABLE "agilhu_rol" CASCADE;
 
 
 CREATE TABLE "agilhu_rol"
@@ -255,7 +212,7 @@ SET search_path TO public;
 -- agilhu_rol_proyecto
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_rol_proyecto" CASCADE;
+--drop TABLE "agilhu_rol_proyecto" CASCADE;
 
 
 CREATE TABLE "agilhu_rol_proyecto"
@@ -274,7 +231,7 @@ SET search_path TO public;
 -- agilhu_usuario
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_usuario" CASCADE;
+--drop TABLE "agilhu_usuario" CASCADE;
 
 
 CREATE TABLE "agilhu_usuario"
@@ -298,7 +255,7 @@ SET search_path TO public;
 -- agilhu_usuario_estado
 -----------------------------------------------------------------------------
 
-DROP TABLE "agilhu_usuario_estado" CASCADE;
+--drop TABLE "agilhu_usuario_estado" CASCADE;
 
 
 CREATE TABLE "agilhu_usuario_estado"
@@ -317,7 +274,7 @@ SET search_path TO public;
 -- chat
 -----------------------------------------------------------------------------
 
-DROP TABLE "chat" CASCADE;
+--drop TABLE "chat" CASCADE;
 
 
 CREATE TABLE "chat"

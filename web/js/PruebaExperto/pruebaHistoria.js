@@ -44,13 +44,10 @@ var PruebaHistoria = function ()
 		{name:'his_unidad_tiempo'},
 		//estos campos no estan incluidos en el formulario en donde van
 		{name:'his_tipo_actividad', type: 'int'},
-		{name:'his_observaciones', type: 'int'},
+		{name:'his_observaciones', type: 'string'},
 		{name:'his_probada'}
 		]),
-      //  sortInfo:{field: 'profechaini', direction: "ASC"},
-      //  groupField:'mod_nombre'
-      });
-
+	});
 
       
      //con el RowExpander puedo mostrar mas informacion de la historia de usuario
@@ -59,7 +56,8 @@ var PruebaHistoria = function ()
             '<p><b>Identificador :</b> {his_identificador_historia}</p>',
             '<p><b>Version :</b> {his_version}</p>',
             '<p><b>Riesgo :</b> {his_riesgo}</p><br/>',
-            '<p><b>Descripción:</b> <h1>{his_descripcion}</h1></p>'
+            '<p><b>Descripción:</b> <h3>{his_descripcion}</h3></p>',
+            '<p><b>Observaciones:</b> {his_observaciones}</p>'
         )
       });
       
@@ -158,14 +156,7 @@ var PruebaHistoria = function ()
 			]
 	   	}],
 
-	/*plugins:[new Ext.ux.grid.Search({
-				mode:          'local',
-				position:      top,
-				searchText:    'Filtrar',
-				iconCls:  'filtrar',
-				selectAllText: 'Seleccionar todos',
-				searchTipText: 'Escriba el texto que desea buscar y presione la tecla enter'
-		})],*/
+	
 	viewConfig:{
 			    forceFit:true,
 			    enableRowBody:true,
@@ -185,7 +176,6 @@ var PruebaHistoria = function ()
       
       /*Con este formulario se envia los resultados de la evaluacion de una nueva historia de usuario*/
       var formPrueba = new Ext.form.FormPanel({
-     //   renderTo: 'pruebaForm',
         split: true,
         region:'south',
 	collapsible: true,    
@@ -196,12 +186,10 @@ var PruebaHistoria = function ()
         layout:'column',
         monitorResize : true,
 	bodyStyle: Ext.isIE ? 'padding:0 0 15px 15px;' : 'padding:10px 15px;',
-//	autoWidth:true,
 	deferredRender:false,
         frame: true,
         items:[{
             layout:'form',
-           // width:'45%',
              width: 210,
 
             defaults:{minValue: 0,width:20,anchor:'95%',maxValue: 100,alternateIncrementValue: 1,incrementValue: 10,allowDecimals: false,allowNegative: false,accelerate: true},
@@ -209,33 +197,75 @@ var PruebaHistoria = function ()
 	        {
 	          xtype:'spinnerfield',//sp
 		  name: 'negociable',
+		  id:'prueba_caracteristica_negociable',
 		  fieldLabel: 'Negociable',
-		  allowBlank: false
+		  allowBlank: false,
+		  listeners:{
+			'render':function(){
+				var temporal='La historia de usuario es negociable con el cliente y con el equipo de trabajo?.';
+				agregarAyuda('prueba_caracteristica_negociable',temporal);
+			 }       
+		  }
 	        },{
 		  xtype:'spinnerfield',
 		  name: 'valiosa',
+		  id:'prueba_caracteristica_valiosa',
 		  fieldLabel: 'Valiosa',
-		  allowBlank: false
+		  allowBlank: false,
+		  listeners:{
+			'render':function(){
+				var temporal='La historia de usuario tiene valor para el cliente?.';
+				agregarAyuda('prueba_caracteristica_valiosa',temporal);
+			 }       
+		  }
 		},{
 		  xtype:'spinnerfield',
 		  name: 'pequena',
+		  id:'prueba_caracteristica_pequena',
 		  fieldLabel: 'Pequeña',
-		  allowBlank: false
+		  allowBlank: false,
+		  listeners:{
+			'render':function(){
+				var temporal='La historia es pequeña en esfuerzo (tiempo y personas)?, peque&ntilde;a significa que representan no más de 2-3 personas/semana de trabajo.';
+				agregarAyuda('prueba_caracteristica_pequena',temporal);
+			 }       
+		  }
 		},{
 		  xtype:'spinnerfield',
 		  name: 'independiente',
+		  id:'prueba_caracteristica_independiente',
 		  fieldLabel: 'Independiente',
-		  allowBlank: false
+		  allowBlank: false,
+		  listeners:{
+			'render':function(){
+				var temporal='La historia de usuario es lo mas independiente posible de otras?.';
+				agregarAyuda('prueba_caracteristica_independiente',temporal);
+			 }       
+		  }
 	    	},{
 		  xtype:'spinnerfield',
 		  name: 'estimable',
+		  id:'prueba_caracteristica_estimable',
 		  fieldLabel: 'Estimable',
-		  allowBlank: false
+		  allowBlank: false,
+		  listeners:{
+			'render':function(){
+				var temporal='La historia de usuario es estimable?.';
+				agregarAyuda('prueba_caracteristica_estimable',temporal);
+			 }       
+		  }
 	   	},{
 		  xtype:'spinnerfield',
 		  name: 'testeable',
+		  id:'prueba_caracteristica_testeable',
 		  fieldLabel: 'Testeable',
-		  allowBlank: false
+		  allowBlank: false,
+		  listeners:{
+			'render':function(){
+				var temporal='La historia de usuario puede verificarse en cuanto se cumpla?.';
+				agregarAyuda('prueba_caracteristica_testeable',temporal);
+			 }       
+		  }
 	      	},{
 		  xtype: 'hidden', //para saber que HU se esta evaluando
 		  name: 'his_id',
@@ -248,8 +278,6 @@ var PruebaHistoria = function ()
 	 },//end form 2
 	{
             layout:'form',
-	   // collapsible : true,
-	    //split:true,
             width:'55%',	
 	    labelAlign: 'top',
 	    items:[
@@ -259,8 +287,6 @@ var PruebaHistoria = function ()
 		  fieldLabel: 'Comentarios'
 		}]
         }]//end form 3
-       // buttonAlign: 'center',
-      //  buttons: [ { text: 'Probar', handler: evaluarHistoria, formBind: true }]
       });
 
     /*INTEGRACION AL CONTENEDOR*/

@@ -46,7 +46,7 @@ var Modulo = function ()
 		{header: 'Habilitado',dataIndex: 'modHabilitado',width: 150}
             //--    ,{header: 'id',dataIndex: 'modId',width: 40,hidden:true}//hidden:true
                 ],
-        dataUrl: URL_AGILHU+'pusuario/modulo/listarmodjer',
+        dataUrl: URL_AGILHU+'pusuario.php/modulo/listarmodjer',
         tbar: [{text: 'Nuevo',id:'btNuevoMod',disabled:true,tooltip: 'Agregar un modulo',scale:'large',iconCls:'nuevo_mod',handler:agfunAgregarMod},
 	       {text: 'Borrar',id:'btBorrarMod',disabled:true,tooltip: 'Borra un modulo',scale:'large',iconCls:'eliminar_mod',handler:agfunConfirDelete}
 	      ],

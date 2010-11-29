@@ -67,7 +67,7 @@ var Participante = function ()
 		  url: 'participante/cargar', 
 		  method: 'POST'
 	      }),
-	baseParams:{task: 'LISTARROP'}, // this parameter is passed for any HTTP request
+	baseParams:{task: 'LISTARROP'}, 
 	reader: new Ext.data.JsonReader({
 		root: 'results',
 		totalProperty: 'total',
@@ -184,40 +184,37 @@ var Participante = function ()
 	url: 'participante/cargar',
     	autoWidth:true,
 	height:heightCentro,
-
         title:'Participantes',
         closable: true,
         frame:true,
-      //  border:false,
         iconCls:'participantes',
 	tabTip :'Aqui puedes ver,los participantes del proyecto, invitar nuevos participantes y quitar roles',
-
 	autoScroll:true,
 	layout: 'border',
 	monitorResize : true,
 	items: [
-		 ParticipanteGrid,
+		ParticipanteGrid,
 		{
-	    	title:'Detalle del participnate',
-		xtype:'panel',
-                frame:true,
-		split:true,
-                width:350,
-		collapsible: true,
-        	region:'east',
-		layout: 'form',	
-		autoScroll:true,
-		defaults: {xtype:'textfield',anchor:'100%',readOnly:true},
-		bodyStyle: Ext.isIE ? 'padding:0 0 15px 15px;' : 'padding:10px 15px;',
-		items:[
-			{fieldLabel: 'IdUsu',name: 'parUsuId',id: 'parUsuId'},
-			{fieldLabel: 'Usuario',name: 'parUsuario',id: 'parUsuario'},
-			{fieldLabel: 'Nombres',name: 'parNombres',id: 'parNombres'},
-			{fieldLabel: 'Apellidos',name: 'parApellidos',id: 'parApellidos'},
-			{fieldLabel: 'Correo',name: 'parCorreo',id: 'parCorreo'},
-			RolParticipanteGrid,
-			],
-		}
+		  title:'Detalle del participnate',
+		  xtype:'panel',
+		  frame:true,
+		  split:true,
+		  width:350,
+		  collapsible: true,
+		  region:'east',
+		  layout: 'form',	
+		  autoScroll:true,
+		  defaults: {xtype:'textfield',anchor:'100%',readOnly:true},
+		  bodyStyle: Ext.isIE ? 'padding:0 0 15px 15px;' : 'padding:10px 15px;',
+		  items:[
+			  {fieldLabel: 'IdUsu',name: 'parUsuId',id: 'parUsuId'},
+			  {fieldLabel: 'Usuario',name: 'parUsuario',id: 'parUsuario'},
+			  {fieldLabel: 'Nombres',name: 'parNombres',id: 'parNombres'},
+			  {fieldLabel: 'Apellidos',name: 'parApellidos',id: 'parApellidos'},
+			  {fieldLabel: 'Correo',name: 'parCorreo',id: 'parCorreo'},
+			  RolParticipanteGrid,
+			  ],
+		  }
 		],
 	tbar: [{
 	    	xtype: 'buttongroup',title: 'Filtros por rol de proyecto',columns:3,
@@ -228,21 +225,15 @@ var Participante = function ()
 	        	
 	        	{text: 'Todos',iconCls: 'rol_todos',rowspan:2,scale: 'large',
 	        		handler:function(){
-	        				 ParticipanteDataStore.baseParams={task:'LISTARPARTICIPANTES'};
-						 ParticipanteDataStore.reload();
-						 ParticipanteGrid.setTitle('Lista de participantes');
-							    }
-				},
-	        	{text: 'Cliente',iconCls: 'rol_cliente',handler:filtroxRol},
-	        	{text: 'Administrador',iconCls: 'rol_jefe',handler:filtroxRol}
-			]
-	   	},/*{
-		xtype: 'buttongroup',title: 'Mensajes',columns: 2,
-		defaults: {scale: 'large'},
-		items: [{text: 'Enviar',iconCls: 'enviar_mensaje'},
-		    	{text: 'Buscar',iconCls: 'buscar'},
-		    	]
-	   	},*/
+				      ParticipanteDataStore.baseParams={task:'LISTARPARTICIPANTES'};
+				      ParticipanteDataStore.reload();
+				      ParticipanteGrid.setTitle('Lista de participantes');
+				}
+			},
+	        	{text: 'Cliente',iconCls: 'rol_cliente',handler: filtroxRol},
+	        	{text: 'Administrador',iconCls: 'rol_jefe',handler: filtroxRol}
+		]
+	   	},
                 {
 	    	xtype: 'buttongroup',title: 'Nuevas Invitaciones',columns: 2,
 	    	defaults: {scale: 'small'},
@@ -251,22 +242,25 @@ var Participante = function ()
 	        	{text: 'Invitar',id:'btnInvitarOtro',disabled:true,iconCls: 'nueva_invitacion',handler:invitarUsuarios}
 	        	]
 		}
-	]//,		
-  	//renderTo: 'formularioParticipante'
+	]
 	});
 
 
 /*************************************/
 /*Aqui tenemos el manejo de eventos tanto de crear , actualizar, eliminar*/
 /*************************************/
-	function filtroxRol(btn){
-  
-	ParticipanteDataStore.baseParams={task:'LISTARPARTICIPANTES',ropNombre:btn.getText()};
-	ParticipanteDataStore.reload();
-	ParticipanteGrid.setTitle('Lista de participantes con rol '+btn.getText());
-  	}
 
-	
+	function filtroxRol(btn){
+		ParticipanteForm.getForm().reset();
+		RolParticipanteGrid.getStore().removeAll();
+	  ParticipanteDataStore.load({
+	    params : {
+		task : 'LISTARPARTICIPANTES',
+		ropNombre: btn.getText()
+	    }
+	  });
+	  ParticipanteGrid.setTitle('Lista de participantes con rol '+btn.getText());
+	}
 	
 	function invitarUsuarios(){
 		Ext.Ajax.request({  

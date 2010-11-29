@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Crear Historia
+    description:  Crear Historia Usuario
+    keywords:     crear, historia, usuario
+    language:     es
+    robots:       index, follow
+
+  stylesheets:    []
+
+  javascripts:    [HU/wammet-funestimacion.js,HU/historiaUsuario.js]
+
+  has_layout:     on
+  layout:         layout

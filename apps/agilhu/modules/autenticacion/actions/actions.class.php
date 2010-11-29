@@ -139,7 +139,7 @@ class autenticacionActions extends sfActions
 	        }
 				  $salida = "({success: true, mensaje:'El usuario fue creado exitosamente'})";
 		  } else {
-			  $salida = "({success: false, errors: { reason: 'Ya existe un usuario con ese mismo No. de cédula'}})";
+			  $salida = "({success: false, errors: { reason: 'Ya existe un usuario con ese mismo login".$this->getRequestParameter('Login')." '}})";
 		  }
 		  return $salida;
 	}

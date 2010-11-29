@@ -29,19 +29,34 @@ AgilhuRol:
 AgilhuUsuario:
   firs_usu:
     usu_id:
-    rol_id: first_rol
+    rol_id: second_rol
     usu_usuario: maryit
-    usu_clave: maryit
+    usu_clave: bWFyeWl0c3Y=
     usu_nombres: maryit viviana
     usu_apellidos: sanchez vivas
     usu_correo: maryitsv@gmail.com
-    usu_estado: 1
+    usu_estado: habilitado
 
 AgilhuRolProyecto:
-  firs_rop:
+  program_rop:
+    rop_id: 1
+    rop_nombre: programador
+    rop_descipcion: es el encargado de estimar y desarrollar las historias
+
+  tester_rop:
     rop_id: 2
     rop_nombre: tester
     rop_descipcion: es el encargado de probar las diversas aplicaciones
+
+  clie_rop:
+    rop_id: 3
+    rop_nombre: cliente
+    rop_descipcion: es el encargado de escribir las diversas aplicaciones
+
+  admin_rop:
+    rop_id: 4
+    rop_nombre: administrador
+    rop_descipcion: encargado de crear el proyecto, los modulos e invitar participantes, entre otros
 
 AgilhuProyecto:
   firs_proy:
@@ -54,7 +69,7 @@ AgilhuParticipante:
   firs_participante:
     pro_id: firs_proy
     usu_id: firs_usu
-    rop_id: firs_rop
-    estado: por definir
+    rop_id: admin_rop
+    estado: Aceptado
 
 

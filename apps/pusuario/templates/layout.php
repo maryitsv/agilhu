@@ -6,6 +6,9 @@
     <?php include_title() ?>
     <?php echo javascript_include_tag('extjs/adapter/ext/ext-base.js') ?> 
     <link rel="shortcut icon" href="/favicon.ico" />
+	<script>
+	URL_AGILHU= '<?php echo (url_for('default/index').'../');?>';
+	</script>	
   </head>
   <body>
     <?php echo $sf_content ?>

@@ -63,6 +63,10 @@ class historiasusuarioActions extends sfActions
       case "REGRESARALAVERSION":
         $salida = $this->regresarVersionAnterior();
         break;
+        
+     case "Estimar":
+        $salida = $this->aplicarEsfuerzo();
+        break;
 
       
       default:
@@ -90,12 +94,50 @@ class historiasusuarioActions extends sfActions
 
     $historias_identificador_maximo = AgilhuHistoriaUsuarioPeer::doSelectStmt($conexion);
     while ($valor = $historias_identificador_maximo->fetch(PDO::FETCH_NUM)) {
-    $proximo_identificador=$valor[0];
- // echo($proximo_identificador);
+      $proximo_identificador=$valor[0];
     }
 
-   return $proximo_identificador+1;
+    return $proximo_identificador+1;
   }
+  
+  
+  /**
+  * Metodo para guardar el resultado de la estimación de una historia de usuario.
+  * @author Luis A. Nuñez
+  * @date 2010-08-23 
+  * @param idH identificador de la historia estimada
+  * @param esfuerzo en horas hombre
+  * @param pw  puntos web
+  */
+  protected function aplicarEsfuerzo()
+  {
+    $idH = $this->getRequest()->getParameter('his_id');//identificador de la historia estimada
+    $pw  = $this->getRequest()->getParameter('PW');//puntos web
+    $esfuerzo = $this->getRequest()->getParameter('esfuerzo');//el esfuerzo dados los puntos web
+    
+    $salida = ""; //la respuesta que sera enviada al cliente
+
+    $HUestimada = AgilhuHistoriaUsuarioPeer::retrieveByPK($idH);
+    if(isset($HUestimada))
+    {
+      //hacer la asignacion del esfuerzo y los puntos web necesarios
+      //obtener el siguiente entero mas grande del valor del esfuerzo.
+     $esfuerzo = ceil($esfuerzo);//el mayor entero
+     $HUestimada->setHisTiempoEstimado($esfuerzo);
+     $HUestimada->setHisUnidadTiempo('Hora');
+     $HUestimada->save();
+     
+      $salida = "{success: true, msg: 'Esfuerzo aplicado'}";
+
+    }else{
+      
+      return "{success: false, msg: 'La historia con identificador ($idH) no existe'}";
+    }
+    
+    return $salida;
+  }
+
+
   /**
   *Este metodo se encarga de crear el registro de una nueva historia de 
   *usuario al sistema, dado los paramatros de la peticion; proyecto
@@ -1353,5 +1395,45 @@ protected function getIdRolProyecto($ropnombre)
     return $salida;
   }
 
+/**
+  * Elimia una historia de usuario y todas su referencia
+  *@author Maryit Sanchez
+  *@date 2010-05-25 
+  */
+  public function executeEliminar(sfWebRequest $request)
+  {
+    $salida="({success: false, errors: { reason: 'entrando la historia'}})";
+
+   try{
+	$his_identificador_historia = $this->getRequestParameter('his_identificador_historia');
+	$pro_id = $this->getUser()->getAttribute('proyectoSeleccionado');
+	if($pro_id!=0){
+		$conexion = new Criteria();
+		$conexion->add(AgilhuHistoriaUsuarioPeer::PRO_ID, $pro_id);
+		$conexion->add(AgilhuHistoriaUsuarioPeer::HIS_IDENTIFICADOR_HISTORIA, $his_identificador_historia);
+		$historias = AgilhuHistoriaUsuarioPeer::doSelect($conexion);
+	       foreach($historias  as $historia){
+			$his_id = $historia->getHisId();
+		 	$conexion2 = new Criteria();
+		    	$conexion2->add(AgilhuPruebaExpertoPeer::HIS_ID_ASOCIADA, $his_id);
+		    	$evaluaciones = AgilhuPruebaExpertoPeer::doSelect($conexion2);
+
+				foreach($evaluaciones  as $evaluacion){
+				$evaluacion->delete();
+				}
+		
+			$historia->delete();
+			$salida = "({success: true, mensaje:'La historia fue eliminado exitosamente'})";
+		}
+	}
+	else{
+		$salida = "({success: false, errors: { reason: 'No se pudo eliminar la historia porque hay un error no se seleciono el proyecto o no se seleciono la historia'}})";
+	}
+    }catch(Exception $e){
+	 $salida = "({success: false, errors: { reason: 'No se pudo eliminar la historia'}})";
+    }
+
+	return $this->renderText($salida);
+  }
   
 }
